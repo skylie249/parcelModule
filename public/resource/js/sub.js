@@ -3,7 +3,7 @@ function subIntro() {
 
     ScrollTrigger.matchMedia({
         // Desktop
-        "(min-width: 1025px)": function() {
+        "(min-width: 1025px)": function () {
             const subVisual = document.querySelector(".sub-top-visual");
             const header = document.getElementById("header");
 
@@ -62,7 +62,7 @@ function subIntro() {
         },
 
         // Mobile
-        "(max-width: 1024px)": function() {
+        "(max-width: 1024px)": function () {
             const subVisual = document.querySelector(".sub-top-visual");
             if (!subVisual) return;
             gsap.set(subVisual, {
@@ -76,17 +76,17 @@ function subIntro() {
 } // 20250826
 
 
-window.initTabs = function(tabSelector, panelSelector) {
-    const tabLinks = document.querySelectorAll(tabSelector); 
-    const tabPanels = document.querySelectorAll(panelSelector); 
+window.initTabs = function (tabSelector, panelSelector) {
+    const tabLinks = document.querySelectorAll(tabSelector);
+    const tabPanels = document.querySelectorAll(panelSelector);
     tabLinks.forEach((tab, index) => {
-        tab.addEventListener('click', () => {           
+        tab.addEventListener('click', () => {
             tabLinks.forEach((item, i) => {
                 item.setAttribute('aria-selected', 'false');
                 item.classList.remove('active');
-                item.querySelector('button').removeAttribute('title');             
+                item.querySelector('button').removeAttribute('title');
                 tabPanels[i].classList.remove('active');
-            });            
+            });
             tab.setAttribute('aria-selected', 'true');
             tab.classList.add('active');
             tab.querySelector('button').setAttribute('title', '현재탭');
@@ -106,21 +106,21 @@ window.initTabs = function(tabSelector, panelSelector) {
 }
 
 function loadmotionSub() {
-    const observeOptions ={
+    const observeOptions = {
         threshold: 0.1,
         rootMargin: "0px 0px -10% 0px"
     }
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('n-active');                
+                entry.target.classList.add('n-active');
             } else {
                 //entry.target.classList.remove('n-active');
             }
         });
     }, observeOptions);
 
-    const motionElements = document.querySelectorAll('.n-motion'); 
+    const motionElements = document.querySelectorAll('.n-motion');
     motionElements.forEach(el => {
         observer.observe(el);
     });
@@ -145,7 +145,7 @@ function videoScrollPlay() {
         observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    video.play().catch(() => {});
+                    video.play().catch(() => { });
                 } else {
                     video.pause();
                 }
@@ -162,7 +162,7 @@ function videoScrollPlay() {
         }
         // 모바일 전환 시 autoplay 복원
         video.setAttribute('autoplay', '');
-        video.play().catch(() => {});
+        video.play().catch(() => { });
     }
 
     if (mql.matches) {
@@ -179,18 +179,48 @@ function videoScrollPlay() {
 }
 
 function videoSound() {
-  const video = document.querySelector('video');
-  const soundBtn = document.querySelector('.tgSound');
-  if(!(video && soundBtn)) return;
-  video.muted = true;
-  soundBtn.addEventListener('click', () => {
-    video.muted = !video.muted;
-    // 볼륨이 0이었다면 기본값 복구
-    if (!video.muted && video.volume === 0) {
-      video.volume = 0.7;
-    }
-    soundBtn.classList.toggle('on', !video.muted);
-  });
+    const bgm = document.getElementById('bgm');
+    const bgSoundBtn = document.querySelector('.bgSoundBtn');
+    const video = document.querySelector('video');
+    const soundBtn = document.querySelector('.tgSound');
+    if (!(video && soundBtn)) return;
+    video.muted = true;
+
+    let wasBgmPlaying = false;
+
+    soundBtn.addEventListener('click', () => {
+        video.muted = !video.muted;
+
+        if (!video.muted && video.volume === 0) {
+            video.volume = 0.7;
+        }
+
+        if (!video.muted) {
+            // 영상 사운드 ON → BGM 재생 중이었으면 기억하고 정지
+            wasBgmPlaying = !!(bgm && !bgm.paused);
+            if (bgm && wasBgmPlaying) {
+                bgm.pause();
+                bgm.muted = true;
+                if (bgSoundBtn) {
+                    bgSoundBtn.querySelector('i').textContent = 'SOUND ON';
+                    bgSoundBtn.classList.remove('on');
+                }
+            }
+        } else {
+            // 영상 사운드 OFF → 이전에 BGM이 재생 중이었으면 복원
+            if (bgm && wasBgmPlaying) {
+                bgm.muted = false;
+                bgm.play();
+                if (bgSoundBtn) {
+                    bgSoundBtn.querySelector('i').textContent = 'SOUND OFF';
+                    bgSoundBtn.classList.add('on');
+                }
+                wasBgmPlaying = false;
+            }
+        }
+
+        soundBtn.classList.toggle('on', !video.muted);
+    });
 }
 
 window.initSub = () => {
