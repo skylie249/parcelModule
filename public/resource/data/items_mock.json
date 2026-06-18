@@ -1,0 +1,119 @@
+{
+  "galleries": [
+    {
+      "index": "1",
+      "name": "판교 SK VIEW Terrace",
+      "files": [
+        { "src": "gc-gallery1.jpg", "alt": "판교 SK VIEW Terrace 조감도" },
+        { "src": "gc-gallery2.jpg", "alt": "판교 SK VIEW Terrace 외관" },
+        { "src": "gc-gallery3.jpg", "alt": "판교 SK VIEW Terrace 로비" }
+      ]
+    },
+    {
+      "index": "2",
+      "name": "DMC SK VIEW IPARK Foret",
+      "files": [
+        { "src": "gc-gallery4.jpg", "alt": "DMC SK VIEW IPARK Foret 조감도" },
+        { "src": "gc-gallery5.jpg", "alt": "DMC SK VIEW IPARK Foret 외관" },
+        { "src": "gc-gallery6.jpg", "alt": "DMC SK VIEW IPARK Foret 커뮤니티" },
+        { "src": "gc-gallery1.jpg", "alt": "DMC SK VIEW IPARK Foret 내부" }
+      ]
+    },
+    {
+      "index": "3",
+      "name": "연제 SK VIEW Central",
+      "files": [
+        { "src": "gc-gallery2.jpg", "alt": "연제 SK VIEW Central 조감도" },
+        { "src": "gc-gallery3.jpg", "alt": "연제 SK VIEW Central 외관" },
+        { "src": "gc-gallery4.jpg", "alt": "연제 SK VIEW Central 단지 내부" },
+        { "src": "gc-gallery5.jpg", "alt": "연제 SK VIEW Central 조경" },
+        { "src": "gc-gallery6.jpg", "alt": "연제 SK VIEW Central 커뮤니티" }
+      ]
+    },
+    {
+      "index": "4",
+      "name": "DMC SK VIEW IPARK Foret",
+      "files": [
+        { "src": "gc-gallery3.jpg", "alt": "DMC SK VIEW IPARK Foret 테라스" },
+        { "src": "gc-gallery4.jpg", "alt": "DMC SK VIEW IPARK Foret 수영장" },
+        { "src": "gc-gallery5.jpg", "alt": "DMC SK VIEW IPARK Foret 피트니스" }
+      ]
+    },
+    {
+      "index": "5",
+      "name": "연제 SK VIEW Central",
+      "files": [
+        { "src": "gc-gallery1.jpg", "alt": "연제 SK VIEW Central 전경" },
+        { "src": "gc-gallery6.jpg", "alt": "연제 SK VIEW Central 입구" }
+      ]
+    },
+    {
+      "index": "6",
+      "name": "판교 SK VIEW Terrace",
+      "files": [
+        { "src": "gc-gallery4.jpg", "alt": "판교 SK VIEW Terrace 스카이라운지" },
+        { "src": "gc-gallery5.jpg", "alt": "판교 SK VIEW Terrace 테라스 정원" },
+        { "src": "gc-gallery6.jpg", "alt": "판교 SK VIEW Terrace 헬스장" },
+        { "src": "gc-gallery1.jpg", "alt": "판교 SK VIEW Terrace 주차장" }
+      ]
+    },
+    {
+      "index": "7",
+      "name": "DMC SK VIEW IPARK Foret",
+      "files": [
+        { "src": "gc-gallery2.jpg", "alt": "DMC SK VIEW IPARK Foret 야경" },
+        { "src": "gc-gallery3.jpg", "alt": "DMC SK VIEW IPARK Foret 공원" },
+        { "src": "gc-gallery4.jpg", "alt": "DMC SK VIEW IPARK Foret 도서관" }
+      ]
+    },
+    {
+      "index": "8",
+      "name": "판교 SK VIEW Terrace",
+      "files": [
+        { "src": "gc-gallery5.jpg", "alt": "판교 SK VIEW Terrace 어린이집" },
+        { "src": "gc-gallery6.jpg", "alt": "판교 SK VIEW Terrace 카페" },
+        { "src": "gc-gallery1.jpg", "alt": "판교 SK VIEW Terrace 상가" },
+        { "src": "gc-gallery2.jpg", "alt": "판교 SK VIEW Terrace 옥상정원" }
+      ]
+    },
+    {
+      "index": "9",
+      "name": "DMC SK VIEW IPARK Foret",
+      "files": [
+        { "src": "gc-gallery6.jpg", "alt": "DMC SK VIEW IPARK Foret 게스트하우스" },
+        { "src": "gc-gallery1.jpg", "alt": "DMC SK VIEW IPARK Foret 골프 연습장" },
+        { "src": "gc-gallery2.jpg", "alt": "DMC SK VIEW IPARK Foret 스파" }
+      ]
+    },
+    {
+      "index": "10",
+      "name": "DMC SK VIEW IPARK Foret",
+      "files": [
+        { "src": "gc-gallery3.jpg", "alt": "DMC SK VIEW IPARK Foret 클럽하우스" },
+        { "src": "gc-gallery4.jpg", "alt": "DMC SK VIEW IPARK Foret 세미나실" },
+        { "src": "gc-gallery5.jpg", "alt": "DMC SK VIEW IPARK Foret 회의실" },
+        { "src": "gc-gallery6.jpg", "alt": "DMC SK VIEW IPARK Foret 파티룸" }
+      ]
+    },
+    {
+      "index": "11",
+      "name": "판교 SK VIEW Terrace",
+      "files": [
+        { "src": "gc-gallery2.jpg", "alt": "판교 SK VIEW Terrace 전망대" },
+        { "src": "gc-gallery3.jpg", "alt": "판교 SK VIEW Terrace 산책로" }
+      ]
+    },
+    {
+      "index": "12",
+      "name": "DMC SK VIEW IPARK Foret",
+      "files": [
+        { "src": "gc-gallery1.jpg", "alt": "DMC SK VIEW IPARK Foret 분수광장" },
+        { "src": "gc-gallery2.jpg", "alt": "DMC SK VIEW IPARK Foret 바베큐장" },
+        { "src": "gc-gallery3.jpg", "alt": "DMC SK VIEW IPARK Foret 야외수영장" },
+        { "src": "gc-gallery4.jpg", "alt": "DMC SK VIEW IPARK Foret 키즈풀" },
+        { "src": "gc-gallery5.jpg", "alt": "DMC SK VIEW IPARK Foret 스낵바" }
+      ]
+    }
+  ],
+  "error": null
+}

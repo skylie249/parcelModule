@@ -1,0 +1,55 @@
+@use '../abstracts' as *;
+
+.breadcrumb {
+	display: flex;
+    align-items: center;
+    gap:3rem;	    
+	li {
+		position: relative;
+        font-weight: 500;
+		&:not(:last-child) {
+			padding-right: 3.6rem;
+			&::after {
+				content: "";				
+				display: block;	
+                position: absolute;
+                right:0;
+                top:50%;
+                transform: translateY(-50%);                
+                @include ico(0.6rem,1.2rem);
+                background-image: svg(linkArr,"222222");
+                background-size: auto 100%;
+				
+			}
+		}
+	}
+
+    @include respond(mobile){
+        gap:1rem;
+        li{
+            font-size:1.2rem;           
+            &:not(:last-child) {
+                padding-right:2rem;
+                &::after {
+                    @include ico(0.3rem,0.6rem);
+                }
+            }
+            .ico-home{
+                @include ico(1.4rem,1.4rem);
+            }
+        }
+    }
+
+    &.white {
+       
+        li {
+            color:white;
+            &::after {
+                background-image: svg(linkArr,"ffffff");
+            }
+            .ico-home {
+                background-image: svg(home,"ffffff");
+            }
+        }
+    }
+}

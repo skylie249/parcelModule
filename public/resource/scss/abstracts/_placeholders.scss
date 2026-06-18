@@ -1,0 +1,14 @@
+/*abstracts/_placeholders.scss*/
+@use "./variables" as v;
+
+%heading{
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+%fontBold{
+    font-family:v.$font-family-pretendard;
+    font-weight: 700;
+    color:v.$accent-color;
+}
+

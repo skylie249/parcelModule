@@ -1,0 +1,40 @@
+@use 'sass:map';
+$breakpoints: (
+  'minWidth': 375px,
+  'phone': 480px,
+  'mobile': 768px, 
+  'tablet': 1024px,
+  'laptop': 1280px,
+  'pc':1440px,  
+  'maxWidth' : 1920px
+);
+
+@mixin respond($breakpoint) {
+  $raw-query: map.get($breakpoints, $breakpoint);
+  @if $raw-query {
+    @media (max-width: $raw-query) {
+      @content;
+    }
+  } @else {
+    @warn "🚨 #{$breakpoint}는 $breakpoints에 존재하지 않습니다.";
+  }
+}
+
+html{ 
+    font-size: 10px;
+    @include respond(laptop){
+      font-size: 9px;
+    }
+    @include respond(tablet){
+      font-size: 9px;
+    }
+    @include respond(mobile){
+      font-size: 1.7vw;      
+    }
+    @include respond(phone){  
+      font-size: 2.8vw;
+    }
+    @include respond(minWidth){
+      font-size: 2.67vw;
+    }
+}

@@ -1,0 +1,214 @@
+/*base/_base.scss */
+@use '../abstracts' as *;
+
+body {
+  font-family:$font-family-pretendard;
+  font-size:$font-size-base;
+  color:$text-color; 
+  line-height: 1.3;
+    &::-webkit-scrollbar{
+        width:5px;
+        height:5px;
+        background-color: #ececec;
+        appearance: none;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color:#898989;
+        border-radius: 3px;
+    }
+}
+#wrap{
+    position:relative;
+    width:100%;
+    max-width:2560px;
+    margin:0 auto;
+}
+.static{
+    max-width:1480px;
+    width:100%;
+    margin:0 auto;
+    padding-left:$spacer-sm;
+    padding-right:$spacer-sm; 
+    @include respond(mobile){
+        padding-left:1.5rem;
+        padding-right:1.5rem; 
+    }
+}
+
+.pc-only{
+    display: block;
+    @include respond(mobile){
+        display: none;
+    }
+}
+
+.mo-only{
+    display: none;
+    @include respond(mobile){
+        display: block;
+    }
+}
+
+.not-scroll{
+    overflow: hidden;
+    width:100%;
+    height:100vh;   
+    body{
+        padding-right:5px;
+    }    
+}
+
+
+
+@include generate-text-classes($font-styles);
+
+.olists-circle{
+    @include olists-circle(1.6rem, $gray66);
+}
+
+.olists-numbers{
+    @include olists-numbers(1.6rem, $gray66);
+}
+.lists-dots{
+    @include lists-dots(1.6rem, $gray66);
+}
+
+.lists-bars{
+    @include lists-bars(1.6rem, $gray66);
+}
+
+.p-dots{
+    @include p-dots(1.6rem, $gray66);
+}
+.p-bars{
+    @include p-bars(1.6rem, $gray66);
+}
+.sub-top{
+    padding-top:10rem;
+}
+
+/*motion*/
+.slide-in{    
+    opacity: 0;
+    transition: all 0.5s;
+    &.left{        
+        transform: translateX(-7.5rem);
+        &.active{
+            opacity: 1;
+            transform: translateX(0%);
+        }
+    }
+    &.right{        
+        transform: translateX(7.5rem);
+        &.active{
+            opacity: 1;
+            transform: translateX(0%);
+        }
+    }
+    &.top{        
+        transform: translateY(-7.5rem);
+        &.active{
+            opacity: 1;
+            transform: translateY(0%);
+        }
+    }
+    &.bottom{        
+        transform: translateY(5rem);
+        &.active{
+            opacity: 1;
+            transform: translateY(0%);
+        }
+    }   
+}
+
+@include respond(tablet){
+    .motion{
+        transition: all 0.5s;
+        transform: translateY(7rem);
+        opacity: 0;
+        &.active{
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}
+
+@include respond(mobile){
+    .olists-circle{
+        @include olists-circle(1.3rem, $gray66);
+    }
+    .olists-numbers{
+        @include olists-numbers(1.3rem, $gray66);
+    }
+    .lists-dots{
+        @include lists-dots(1.3rem, $gray66);
+    }
+    .lists-bars{
+        @include lists-bars(1.3rem, $gray66);
+    }
+    .p-dots{
+        @include p-dots(1.3rem, $gray66);
+    }
+    .p-bars{
+        @include p-bars(1.3rem, $gray66);
+    }
+}
+/*Error*/
+.error-wrap{
+    padding-top:20rem;
+    padding-bottom:20rem;
+    min-height: 100vh;
+    @include flex-c;
+    .error-msg{
+        text-align: center;
+        padding:2rem;
+        h2{
+            font-size:3.6rem;
+            font-weight: 600;
+            letter-spacing: -0.72px;
+        }
+        p{
+            margin-top: 2rem;
+            font-size:2rem;
+            line-height: 1.4;
+            letter-spacing: -0.4px;
+            color:$sub-color;
+        }
+        .btn-fill{
+            margin-top: 5rem;
+        }   
+    }
+
+    @include respond(mobile){
+        .error-msg{
+            h2{
+                font-size:2rem;
+            }
+            p{
+                font-size: 1.3rem;
+            }
+        }
+    }
+}
+
+
+.video__frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+    }
+}
+@media print {
+    /* 인쇄 시 화면 전체를 안 보이게 처리 */
+    body {
+        display: none !important;
+    }
+}

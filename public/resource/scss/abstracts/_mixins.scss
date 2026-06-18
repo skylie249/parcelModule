@@ -1,0 +1,203 @@
+/*abstracts/_mixins.scss*/
+@use "./variables" as v;
+@use './responsive' as r;
+
+@use 'sass:map';
+
+@mixin flex-c{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin flex-sp{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@mixin btn($width:10rem,$height:6rem){
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap:1rem;
+    padding:1.6rem 3rem;
+    font-size:1.8rem;
+    border:1px solid v.$primary-color;
+    transition: background 0.3s;
+    line-height: 1.1;
+    min-width:$width;
+    height:$height;
+    border-radius: 3.5rem;
+    letter-spacing: -0.36px;
+    vertical-align: middle;
+    font-weight: 500;
+}
+@mixin btn-small($width:14rem,$height:4rem){
+    min-width:$width;
+    height:$height;
+    padding:1.2rem 3.2rem;
+    font-size:1.4rem;    
+}
+
+@mixin btn-large($width:16rem,$height:8rem){
+    min-width:$width;
+    height:$height;
+    padding:2.6rem 3.2rem;
+    font-size:2rem;  
+    font-weight: 500;  
+    letter-spacing: -0.4px;
+    border-radius: 4rem;
+}
+
+@mixin ellipsis($line-cnt: 1, $line-height: 1.3) {
+    @if $line-cnt == 1 {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    } @else {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: $line-cnt;
+        -webkit-box-orient: vertical;
+        word-wrap: break-word;
+        line-height: $line-height;
+    }
+}
+
+
+@mixin ico($width:2.4rem,$height:2.4rem){
+    display: block;
+    width:$width;
+    height:$height;   
+    vertical-align: middle;
+    background-repeat: no-repeat; 
+    background-position: 50% 50%;
+    background-size: cover;
+}
+@mixin generate-text-classes($map) {
+  @each $key, $props in $map {
+    .text-#{$key} {
+      font-size: map.get($props, font-size);
+      line-height: map.get($props, line-height);
+      font-weight: map.get($props, font-weight);
+      letter-spacing: map.get($props, letter-spacing);
+    }
+  }
+}
+@mixin olists-circle($fSize:1.6rem,$fColor:#222){  
+    counter-reset: circle;
+    >li{
+        position: relative;
+        font-size:$fSize;
+        padding-left:$fSize + 0.6rem;
+        line-height: 1.5;
+        color:$fColor;
+        &:before{
+            display: block;
+            position: absolute;
+            top:1em;
+            left:0;
+            counter-increment: circle 1;
+            content:counter(circle); 
+            font-size:0.75em;
+            line-height: 0;
+            width:$fSize;
+            text-align: center;
+        }
+        &:after{
+            content:'';
+            position:absolute;
+            top:0.25em;
+            left:0;
+            display:inline-block;
+            border:1px solid $fColor;
+            border-radius:50%;
+            width:$fSize;
+            height:$fSize;
+        }
+    }  
+}
+@mixin olists-numbers($fSize:1.6rem,$fColor:#222){
+    counter-reset:index;
+    margin-left:1.2em;
+    >li{
+        font-size:$fSize;
+        line-height: 1.5;
+        list-style-type: decimal;        
+    }
+}
+@mixin lists-dots($fsize:1.6rem,$fColor:#222){
+    >li{
+        position: relative;
+        padding-left:0.75em;
+        line-height: 1.5;
+        font-size:$fsize;
+        &:before{
+            content: '';
+            display: block;
+            width:0.25em;
+            height:0.25em;
+            border-radius: 50%;
+            background: $fColor;
+            position: absolute;
+            top:0.6em;
+            left:0.1em;            
+        }
+    }
+}
+@mixin p-dots($fsize:1.6rem,$fColor:#222){
+    position: relative;
+    padding-left:0.75em;
+    line-height: 1.5;
+    font-size:$fsize;
+    &:before{
+        content: '';
+        display: block;
+        width:0.25em;
+        height:0.25em;
+        border-radius: 50%;
+        background: $fColor;
+        position: absolute;
+        top:0.6em;
+        left:0.1em;        
+    }
+}
+@mixin lists-bars($fsize:1.6rem,$fColor:#222){
+    >li{
+        position: relative;
+        padding-left:0.75em;
+        line-height: 1.5;
+        &:before{
+            content: '';
+            display: block;
+            width:0.5rem;
+            height:1px;
+            position: absolute;
+            top:0.6em;
+            left:0;
+            background: $fColor;            
+        }
+    }
+}
+@mixin p-bars($fsize:1.6rem,$fColor:#222){
+    position: relative;
+    padding-left:1em;
+    line-height: 1.5;
+    &:before{
+        content: '';
+        display: block;
+        width:0.5rem;
+        height:1px;
+        position: absolute;
+        top:0.6em;
+        left:0;
+        background: $fColor;
+
+    }
+}
+@mixin spacing($property, $pc-value, $mo-value){
+    #{$property} : $pc-value;
+    @include r.respond(mobile){
+        #{$property} : $mo-value;
+    }   
+}

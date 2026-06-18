@@ -1,0 +1,178 @@
+@use '../abstracts' as *;
+
+table {
+    &.ty1{
+        width: 100%;
+        border-collapse: separate;
+        border-top: 1px solid $primary-color;  
+        border-bottom:1px solid $primary-color;
+        th,
+        td{            
+            font-size: 1.6rem;
+            line-height: 140%;
+            padding: 2rem 1%;
+            text-align: center;
+            border-right:1px solid $border-color;
+            border-bottom: 1px solid $border-color;
+            &:last-child{
+                border-right:0;
+            }
+        }
+        th {
+            background: $background-th;
+            font-weight: 500;
+        }
+        td {
+            color: $sub-color;
+        }
+        tfoot{
+            tr{
+                td{
+                    border-bottom:0;
+                    border-top:1px solid $border-color;
+                }
+            }
+        }
+        tr{
+            &:last-child{
+                td{
+                    border-bottom:0;
+                 }
+            }
+            
+        }
+    } 
+    
+    &.ty2{
+        width: 100%;
+        border-collapse: separate;
+        border-top: 1px solid $primary-color;  
+        border-bottom: 1px solid $primary-color; 
+        th,
+        td{
+            font-size: 1.6rem;
+            line-height: 1.4;            
+            text-align: center;            
+            border-bottom: 1px solid $border-color;
+            &:last-child{
+                border-right:0;
+            }
+        }
+        th {
+            //background: $background-th;
+            padding: 1.3rem 0;
+            font-weight: 500;
+            letter-spacing: -0.32px;
+            border-bottom: 1px solid $primary-color; 
+            color:$primary-color;
+        }
+        td {
+            color: $sub-color;
+            padding: 1.3rem 2%;
+        }
+        tr{
+            &:last-child{
+                td{
+                    border-bottom:0;
+                }
+            }
+        }
+        .title{
+            text-align: left;
+        }
+        .link-file{
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+        .link-dt{
+            display: inline-block;           
+            padding-left:4rem;
+        }
+        .ag-l{
+            text-align: left;
+            padding-left:4rem;
+        }
+        strong{
+            &.link-file{
+                color:$primary-color;
+                font-weight: 500;
+            }
+        }
+        em {
+          font-size: 1.2em;
+          font-weight: 500;
+          color: $primary-color;
+          text-decoration: underline;
+        }
+    }
+    @include respond(mobile){
+        &.ty1{
+            th,td{
+                font-size: 1.3rem;               
+            }
+            td{
+                padding:1.2rem 1%;
+            }
+            th{
+                padding:1.2rem 0;
+            }
+        }
+        &.ty2{
+            th,td{
+                font-size: 1.3rem;                
+            }
+            td{
+                padding:1rem 1%;
+            }
+            th{
+                padding:0.9rem 0 0.8rem;
+                
+            }
+            .ag-l{
+                padding-left:1rem;
+            }
+        }
+    }
+}
+
+@include respond(tablet){
+    .scroll-garo-wrap{
+        position: relative;        
+        .scroll-garo-ctrl{
+            display: block;
+            width:8rem;
+            height:8rem;
+            background: rgba(0, 0, 0, 0.20) url(#{$img-path}/common/ico-scroll-hand.svg) no-repeat 50% 50%;
+            border-radius: 50%;
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        } 
+        .scroll-garo{
+            overflow: hidden;
+            overflow-x: auto;
+            margin-left: -2rem;
+            margin-right: -2rem;
+            padding: 0 2rem;
+            .ty1-wp,
+            .ty1-wrap,.ty2-wrap{
+                width:144rem;
+            }
+            .ty2-lifebook{
+                width:144rem;
+            }
+            
+        } 
+    }
+}
+
+@include respond(mobile){
+    .scroll-garo-wrap{
+        .scroll-garo{
+            .ty2-lifebook{
+                width:90rem;
+            }
+        }
+    }
+}

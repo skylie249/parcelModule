@@ -1,0 +1,288 @@
+@use '../abstracts' as *;
+
+#footer{
+    position: relative;
+    background:$dark-color;    
+    .footer-top{
+        padding:2.5rem 8rem;
+        display: flex;
+        justify-content: space-between;  
+        align-items: center; 
+        @include respond(maxWidth){
+            padding:3.3rem 5.21vw;
+        }
+        @include respond(tablet){
+            display:block;
+        }
+        @include respond(mobile){
+            padding:4rem 2rem 2rem;
+            display: block;           
+        }
+        
+    }
+    .footer-btm{
+        padding:3rem 8rem 8rem; 
+        border-top:1px solid rgba(255, 255, 255, 0.14);
+        display: flex;
+        gap:5rem;
+
+        @include respond(maxWidth){
+            padding:3rem 5.21vw 8rem;
+            gap:2.6vw;
+        }        
+        @include respond(tablet){
+            flex-direction: column;
+        }
+        @include respond(mobile){
+            gap:$spacer-sm;
+            padding:0 2rem 5rem;
+            border-top:0;
+        }
+        
+    }
+    .footer-links{
+        display: flex;
+        flex-wrap: wrap;
+        >li{
+            display: flex;
+            align-items: center;
+            &::before{
+                content: '';
+                display: block;
+                width:1px;
+                height:1.2rem;
+                background: rgba(255, 255, 255, 0.20);
+            }            
+            &:first-child{
+                &::before{
+                    display: none;
+                }
+                a{
+                    padding-left:0;
+                    color:$white;                    
+                }
+            }
+        }
+        a{ 
+            padding:0 1.4rem;
+            color:$gray77;
+            font-size:1.8rem;     
+            font-weight: 500;   
+            letter-spacing: -0.36px;    
+        }
+        @include respond(mobile){
+            flex-direction: column;
+            gap:1.4rem;
+            li{
+                &::before{
+                    display: none;
+                }
+            }
+            a{
+                font-size: 1.3rem;
+                padding:0;
+            }
+        }
+    }
+    .footer-infos{        
+        .infos{     
+            span{
+                display: inline-flex;
+                align-items: center;
+                gap:1.2rem;     
+                color: $gray77;   
+                font-size: 1.5rem;
+                line-height: 1.33;
+                letter-spacing: -0.3px; 
+                padding-right:1rem;  
+                font-weight: 500;     
+                &::after{
+                    content: '';
+                    display: block;
+                    width:1px;
+                    height:1.2rem;
+                    background-color: rgba(255, 255, 255, 0.30);
+                }
+                &:last-child{
+                    &::after{display: none;}
+                }
+                &.email{
+                    &::after{
+                        display: none;
+                    }
+                }
+            }
+            @include respond(mobile){
+                width:auto;
+                span{
+                    font-size: 1.2rem;
+                    line-height: 1.5;
+                    vertical-align: top;
+                    &.adr{
+                        &::after{
+                            display: none;
+                        }
+                    }
+                }
+
+            }
+            @include respond(phone){
+                
+                width:auto;                
+                span{                   
+
+                    &.tel, &.adr{
+                        &::after{
+                            display: none;
+                        }
+                    }
+                }
+
+            }
+        }
+        .copy{            
+            margin-top: 3rem;
+            font-size: 1.4rem;
+            line-height: 1.42;
+            color: $gray77;
+            letter-spacing: -0.28px;           
+        }
+
+        @include respond(mobile){
+            order:2;
+            .copy{
+                font-size: 1.2rem;
+                margin-top: 2rem;
+            }
+        }
+    }   
+    .footer-certi{
+        display: flex;
+        justify-content: flex-end;
+        height: 4.6rem;
+        gap:1rem;
+        @include respond(tablet){
+            text-align: right;
+            margin-bottom: 2rem;
+        }
+        @include respond(mobile){
+           justify-content: flex-start;           
+           order:1;
+           margin:0;
+        }
+    }
+    .footer-logo{
+        margin-left:auto;
+        width:12.9rem;
+        height:2.5rem;
+        background: url(#{$img-path}/common/logo-footer.svg) no-repeat 50% 0;
+        background-size: 100% auto;
+        margin-top:1.2rem;
+        @include respond(mobile){
+            display: none;
+        }
+    }
+    .footer-aside{
+        display: flex;
+        justify-content: flex-end;        
+        .sns{
+            display: flex;
+            align-items: center;
+            gap:1.2rem;
+            a {
+                @include flex-c;
+            }
+        } 
+        .dropdown{
+            margin-left: 3rem;
+        }
+       
+        @include respond(tablet){
+            margin-top: $spacer-md;
+        }
+
+        @include respond(mobile){
+            flex-direction: column;   
+            gap:2rem;         
+            margin-top: 2rem;
+            .dropdown{
+                width:100%;
+                margin-left: 0;
+            }
+        }
+    }
+
+    .footer-ment {
+        padding:3rem 8rem 2.4rem;
+        font-size: 1.4rem;
+        color:rgba(255,255,255,0.6);
+        border-bottom:1px solid rgba(255, 255, 255, 0.14);
+        text-align:right;
+        line-height: 1.5rem;
+        letter-spacing: -0.24px;
+        @include respond(maxWidth){
+            padding:2.4rem 5.21vw;
+        }
+        @include respond(mobile){
+            font-size: 1.2rem;
+            padding:3rem 2rem 0;
+            text-align: left;
+            border-bottom:0;
+        }
+    }
+}
+
+.dropdown{
+    position: relative;
+    width:24rem;
+    transition: all 0.5s;
+    button{
+        width:100%;
+        height:5rem;
+        border: 1px solid rgba(255, 255, 255, 0.20);
+        padding:1.6rem 1.5rem;
+        color:#fff;      
+        letter-spacing: -0.3px;
+        @include flex-sp;
+        font-size:1.5rem;
+    }
+    ul{
+        display: none;
+        position: absolute;
+        width:100%;
+        bottom:5rem;
+        border: 1px solid rgba(255, 255, 255, 0.20);
+        background: #fff;
+        li{
+            a{
+                padding:1.6rem 1.5rem;
+                display: flex;   
+                justify-content: flex-start;             
+                color:$primary-color;
+            }
+        }
+    }
+    &.open{
+        button{
+            i{
+                transform: rotate(180deg);
+            }
+        }
+        ul{
+            display: block;
+        }
+    }
+
+    @include respond(mobile){
+        button{
+            font-size: 1.3rem;
+        }
+        ul{
+            li{
+                a{
+                    font-size: 1.3rem;
+                }
+            }
+        }
+    }
+}

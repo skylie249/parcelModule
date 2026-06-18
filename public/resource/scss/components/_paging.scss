@@ -1,0 +1,73 @@
+@use '../abstracts' as *;
+
+.pagination {
+    width: 100%;
+    @include flex-c;
+    @include spacing(margin-top,$space-pc-5,$space-mo-3);
+    a, button{
+        @include flex-c;
+        min-width: 4rem; 
+        height:4rem;                 
+        padding:0.4rem; 
+        font-size: 1.6rem;                
+        border-left:0;
+        color:$gray88;
+        letter-spacing: -0.36px;
+        border-radius: 50%;   
+        &[aria-current="page"] {
+            color:$white;                           
+            background:$primary-color;  
+        }
+
+        &:focus-visible{
+            outline: 2px solid #007bff;
+            outline-offset: 2px;
+        }
+    }
+    .paging-prev,
+    .paging-next{
+        @include flex-c;
+        position: relative; 
+        width: 4rem; 
+        height: 4rem; 
+    }
+    .paging-prev{
+        margin-right:1rem;
+        &:before{
+            content: '';
+            @include ico(1.3rem,2rem);
+            background-image: svg(pNext2,"222222");
+            background-size:cover;
+            transform: rotate(180deg);
+        }
+    }
+    .paging-next{
+        margin-left:1rem;
+        &:before{
+            content: '';
+            @include ico(1.3rem,2rem);
+            background-image: svg(pNext2,"222222");
+            background-size:cover;
+        }
+    }   
+    @include respond(mobile){
+        a,button{
+            min-width: 3rem; 
+            height:3rem;   
+            font-size:1.3rem;
+        }
+        .paging-prev,
+        .paging-next{
+            width:3rem;
+            height:3rem;
+            &::before{
+                transform: scale(0.8);
+            }
+        }
+        .paging-prev{
+            &::before{
+                transform:rotate(180deg) scale(0.8);
+            }
+        }
+    }
+}

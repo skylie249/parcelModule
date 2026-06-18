@@ -1,0 +1,989 @@
+@use '../abstracts' as *;
+
+input[type=text], 
+input[type=password], 
+input[type=search], 
+input[type=date], 
+input[type=number], 
+textarea, 
+select{    
+    border:1px solid $light-color;
+    color:$text-color;
+    padding:0 2rem;
+    font-size: 1.8rem;
+    box-sizing: border-box;
+    line-height: 1.2;
+    border-radius: $border-radius-sm;
+    letter-spacing: -0.36px;
+    font-weight: 500;
+    ::-ms-expand{
+        display: none;
+    }    
+    @include respond(mobile){
+        height:4rem;
+        font-size: 1.3rem;
+    }
+}
+.input,
+.inputCalendar{
+    height:6rem;
+
+    &.dim{
+        background: $background-th;
+    }
+    &:read-only{
+        background: $background-th;
+    }
+
+    @include respond(mobile){
+        height:5rem;
+        font-size: 1.3rem;
+    }
+    &.disabled{
+        background: $background-th;        
+    }
+}
+.disabled{
+    background: $background-th;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.input-calendar{
+    &.dim{
+        background: $background-th;
+    }
+}   
+
+
+
+
+.select{
+    background:$white url(#{$img-path}/common/ico-select-arr.svg) right 1rem center no-repeat;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-right:4rem;    
+    height:6rem;
+    &.job{
+        min-width: 32rem;
+    }
+    &.mm{
+        min-width: 12rem;
+    }
+    @include respond(mobile){
+        padding-left:2rem;
+        padding-right:3rem;
+        height:5rem;
+        font-size:1.3rem;        
+    }
+}
+
+.input-check{
+    position: relative;
+    input{
+        width: 100%;
+    }
+    .btn-x{
+        position: absolute;
+        top:50%;
+        right:1rem;
+        transform: translateY(-50%);
+        width:1.7rem;
+        height:1.7rem;
+        .ico-x{
+            display: block;
+            width:100%;
+            height:100%;  
+        }
+    }    
+}
+
+.input-search{
+    display: inline-flex;
+    background:$white;
+    border:1px solid $light-color;   
+    input{
+        border:0;
+    }
+}
+
+.checkForm{
+    display: inline-block;
+    input{
+        position: absolute;
+        width:2.5rem;
+        height:2.5rem;
+        cursor: pointer;
+    }
+    label{
+        position: relative;
+        display: block;
+        padding-left:3.5rem; 
+        font-size:1.6rem;
+        line-height: 2.5rem;
+        color:#222;
+        font-weight: 600;
+        &::before{
+            content: '';
+            display: block;
+            width:2.5rem;
+            height:2.5rem;            
+            position: absolute;
+            top:0;
+            left:0;
+            border: 0.1rem solid #bbb;
+            box-sizing: border-box;
+        }
+        &::after{
+            content: '';   
+            display: block;                
+            transform: rotate(-45deg) scale(0); 
+            transition: all 0.3s;          
+
+        }
+    }
+    input[type="checkbox"] + label{
+        &::before{
+            border-radius: 0.5rem;
+        }        
+    }
+    input[type="radio"] + label{
+        &::before{
+            border-radius: 50%;
+        }
+        &::after{
+            border-radius: 50%;
+        }
+    }
+    input[type="checkbox"]:checked + label{
+        &::before{
+            border: 0.1rem solid $primary-color;
+            background-color: $primary-color;
+        }    
+        &::after{
+            content: '';
+            display: block;
+            position: absolute;            
+            top:0.5rem;
+            left:0.55rem;
+            width:1.4rem;
+            height:1rem;
+            border-top: 0;
+            border-right: 0;
+            border-bottom: 0.3rem solid #fff;
+            border-left: 0.3rem solid #fff;
+            transform: rotate(-45deg) scale(1);
+        }    
+    }
+    input[type="radio"]:checked + label{
+        &::before{
+            border: 0.1rem solid $primary-color;
+        }    
+        &::after{
+            content: '';
+            display: block;
+            position: absolute;
+            width:1.5rem;
+            height:1.5rem; 
+            background: $primary-color;
+            border-radius: 50%;
+            top:0.5rem;
+            left:0.5rem;
+            transform:rotate(-45deg) scale(1);
+        }    
+    }
+    input:focus + label::before {
+        box-shadow: 0 0 0 0.1rem rgba(0, 0, 0, 0.4);
+        border-color: $primary-color;
+    }
+
+    @include respond(mobile){
+        input{
+            width:2rem;
+            height:2rem;
+        }
+        label{
+            padding-left:2.5rem; 
+            font-size:1.3rem;
+            line-height: 2rem;
+            &::before{
+                width:2rem;
+                height:2rem;
+            }
+        }
+
+        input[type="checkbox"]:checked + label{
+            &::after{
+                top:0.4rem;
+                left:0.35rem;
+                width:1.2rem;
+                height:0.8rem;
+                border-bottom: 0.2rem solid #fff;
+                border-left: 0.2rem solid #fff;
+            }
+
+        }
+        input[type="radio"]:checked + label{            
+            &::after{
+                width: 1.2rem;
+                height:1.2rem; 
+                background: $primary-color;
+                top:0.4rem;
+                left:0.4rem;
+            }
+        }
+    }
+
+}
+
+.search-box{
+    background: $grayf6;
+    border-radius: $border-radius-sm;
+    padding:4.8rem 5.56%;
+    &-top{
+        @include flex-c;
+        gap:1rem; 
+        select{
+            width:23.44%;
+            height:7.6rem;
+            padding:0 2.4rem;        
+        }
+        .input-search{
+            width:62.50%;
+            height:7.6rem;
+            padding:0;
+            border-radius: $border-radius-sm;
+            input[type="text"]{
+                width:calc(100% - 7.6rem);
+                padding:2.7rem 3rem;
+                font-size: 1.8rem;
+            }
+            button{
+                @include flex-c;
+                width: 7.6rem;
+            }    
+        }
+        .btn-fill{
+            width:12.50%;
+            height:7.6rem;
+            background: #81503B;
+            border:0;
+            &:hover,&:focus{
+                background-color: #5A3227;
+                color:var(--white)
+            }
+            &.on{
+                background-color: $primary-color;
+            }
+        }
+
+    }
+    &-detail{
+        @include flex-c;
+        gap:2rem;
+        margin-top:4.8rem;
+        display: none;
+        &.open{
+            display: flex;
+            select{
+                width: 30rem;
+            }
+        }
+    }
+
+    @include respond(mobile){
+        padding:2rem 1rem;
+        &-top{
+            select,
+            .btn-fill{
+                display: none;
+            }
+            .input-search{
+                width: 100%;
+                height:5rem;
+                input[type=text]{
+                    width: calc(100% - 5rem);
+                    height:100%;
+                    font-size:1.2rem;
+                    padding:1.6rem 1.5rem;
+                }
+                button{
+                    width: 5rem;
+                    height:100%;
+                    .ico-search{
+                        width: 1.6rem;
+                        height:1.6rem;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.form-channels{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem 5rem; 
+    @include respond(mobile){
+        gap: 2rem 1rem; 
+    }
+}
+.form-elt{
+    margin-top: 2rem;
+}
+.form-col-phone{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:1rem;
+    max-width:42rem;
+    input{
+        width:30%;
+        text-align: center;
+    }
+    select{
+        width:30%;
+        //min-width: 12rem;
+    }
+    .dash {
+        width: 1.2rem;
+        height: 0.2rem;
+        background-color: $black;
+    }
+
+    @include respond(mobile){
+        input,
+        select{
+            flex:1
+        }
+        .dash{
+            width:0.6rem;
+            height:0.1rem;
+        }
+    }
+}
+.form-email{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:1rem;
+    max-width: 64.2rem;
+    &-ipt{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap:1rem;
+    }
+    select{
+        min-width:12rem;        
+    }
+    input{
+        width:45%
+    }
+    
+
+    @include respond(mobile){
+        flex-wrap: wrap;
+        &-ipt{
+            gap:0.7rem;
+        }
+        select{
+            width: 100%;
+        }
+    }
+}
+.form-zipcode{
+    display: flex;
+    width:100%;
+    gap:1rem;
+    input{
+        width:15rem;
+    }
+    button{
+        width: 14rem;
+    }
+
+}
+.form-address{
+    width:100%;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width:64.2rem
+}
+.checkForm-lists{
+    display: flex;
+    gap:4rem
+}
+.input-calendar{
+    border:1px solid $border-color;
+    border-radius: 0.3rem;
+    width:24rem;
+    height:4.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right:1rem;
+    input{
+        height:100%;
+        width:86%;
+        border:0;
+    }
+    @include respond(mobile){
+        width:61%;
+        height:4rem;
+    }
+
+    &.disabled{
+
+    }
+}
+.form-ui{
+    border-top:1px solid $primary-color;    
+    @include spacing(margin-top,$space-pc-5, $space-mo-3);
+    .form{
+        &-row{
+            display: flex;
+            border-bottom:1px solid $border-color;
+            &:last-child{
+                border-bottom:1px solid $primary-color
+            }
+        }
+        &-tit{
+            width:18rem;
+            background: $background-th;
+            @include flex-c;
+            font-size:1.8rem;
+            font-weight: 500;
+            letter-spacing: -0.36px;
+        }
+        &-col{
+            width:calc(100% - 18rem);
+            padding:1.3rem 4rem;
+            min-height: 7rem;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size:1.8rem;
+            color:$sub-color;
+            font-weight: 500;
+            letter-spacing: -0.36px;
+            strong{
+                color:$primary-color;
+                font-weight: 500;
+            }
+            .noti{
+                width: 100%;
+                margin-top: 1rem;
+                font-size: 1.6rem;
+                color:$sub-color;
+                font-weight: 300;
+                display: flex;
+                gap:0.5rem;
+                &.astr{
+                    &::before{
+                        content:'\203B';
+                    }                    
+                }
+            }
+            .noti + .noti{
+                margin-top: 0.3rem;
+            }
+            .input,
+            .select{
+                height:4.4rem;
+            }
+                   
+            .textar{
+                width:100%;
+                height:20rem;
+            }
+            .movein-btns{
+                display: flex;
+                gap:1rem;
+                margin-left:1rem;               
+            }
+            &.mbr-fav{
+                padding-top:2rem;
+                padding-bottom:2rem;
+            }
+        }
+        &-id-check{
+            .input{
+                margin-right: 1rem;
+            }
+        }
+        &-col-time{
+            display: flex;
+            .input-calendar{
+                margin-right: 1rem;
+            }
+        }      
+        &-col-title{
+            display: flex;
+            gap:1rem;
+            width:100%;
+            .select{
+                width:20%;
+            }
+            .input{
+                width: calc(100% - 20%);
+            }
+        }
+    }
+
+    @include respond(mobile){ 
+        .form{
+            &-row{
+                flex-direction: column;               
+            }
+            &-tit{
+                width:100%;
+                padding:1rem 1.5rem;
+                justify-content: flex-start;
+                font-size: 1.3rem;
+                border-bottom:1px solid $border-color;
+            }
+            &-col{    
+                width:100%;
+                min-height: 5rem;
+                padding:1rem 1.5rem;
+                font-size: 1.3rem;
+                .noti{
+                    font-size: 1.3rem;
+                    letter-spacing: -0.26px;
+                    font-weight: 500;
+                }
+                .input,
+                .select{
+                    width:100%;
+                    height:4rem;
+                }
+                .form-time{
+                    width: 100%;
+                    select{
+                        width: 100%;
+                    }
+                }
+                .form-id-check{
+                    display: flex;
+                    justify-content: space-between;
+                    gap:1rem;
+                    .input{
+                        width: calc(100% - 9rem);
+                        margin-right: 0;
+                    }                   
+                }
+                &.has-btns2{
+                    span{
+                        display: block;
+                        width:100%;
+                    }
+                    .movein-btns{
+                        margin-left:0;
+                        margin-top: 1rem;
+
+                    }
+                }               
+                .form-zipcode{
+                    .btn-gray{
+                        margin:0;
+                    }
+                }
+
+            }
+
+            &-col-title{
+                flex-direction: column ;
+                .select,
+                .input{
+                    width:100%;
+                }
+            }
+        }
+    }
+}
+.form-no-content{
+    padding:2.56rem 2rem;
+    font-size:1.8rem;
+    font-weight: 500;
+    letter-spacing: -0.36px;
+    color:$sub-color;
+    text-align: center;
+    width:100%;
+    @include respond(mobile){
+        font-size: 1.3rem;
+    }
+
+}
+.form-col-apt{
+    display: flex;
+    align-items: center;
+    gap:1rem;    
+}
+
+.form-col-apt1{
+    display: flex;
+    align-items: center;
+    gap:4rem;
+    padding:0.9rem 0;
+}
+.form-col-apt2{
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:1rem;
+    .select{
+       width:24rem;
+    }
+
+    @include respond(mobile){
+        .select{
+            &.dong{
+                width:40%
+            }
+            &.ho{
+                width: 40%;
+            }
+        }
+        .btn-gray{
+            position: relative;
+            left:50%;
+            transform: translateX(-50%);
+            width:10rem;
+        }
+    }
+}
+.form-col-apt3{
+    width:100%;
+    margin-top: 1.2rem;
+    .apt3-items{
+        max-width:80rem;
+        border:1px solid $border-color;
+        padding:1.2rem 2rem;
+        border-radius: $border-radius-sm;
+    }
+    .apt3-item{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &:not(:first-child){
+            margin-top: 0.7rem;
+        }
+        span{
+            font-size: 1.8rem;
+        }
+    }
+    @include respond(mobile){
+        .apt3-items{
+            padding:1rem;
+        }
+        .apt3-item{
+            span{
+                font-size: 1.3rem;
+            }
+        }
+    }
+}
+
+.form-col-row{
+    width:100%;
+    display: flex;
+    align-items: center;
+    gap:1rem;
+    &:not(:first-child){
+        margin-top: 1rem;
+    }
+    &-tit{
+        font-size: 1.8rem;
+        color:$sub-color;
+        font-weight: 500;
+        letter-spacing: -0.36px;
+    }
+    &-col{
+        display: flex;
+        align-items: center;
+        gap:1rem;
+        flex-wrap: wrap;
+        .select{
+            min-width: 20rem;
+        }
+        .input{
+            width: 20rem;
+        }
+        .checkForm-lists{
+            display: flex;
+            align-items: center;
+            gap:4rem;
+            padding:0.9rem 0 
+        }        
+    }
+
+    &.mbr-hope-local{
+        align-items: flex-start;
+        .form-col-row-tit{
+            padding-top:1rem;
+        }
+    }
+
+    @include respond(mobile){
+        &-tit{
+            font-size: 1.3rem;
+        }
+    }
+}
+
+.mbr-house{
+    .form-col-row-tit{
+        width:11rem;        
+    }
+    @include respond(mobile){
+        .form-col-row-tit{
+            width:8rem;
+        }
+        .form-col-row-col{
+            width: calc(100% - 8rem);
+            &.has-txt{
+                display: flex;
+                align-items: center;
+                .input{
+                    width: 62%;
+                }
+            }
+        }
+    }
+}
+
+.mbr-subscrip{
+    .form-col-row-tit{
+        width:7rem;
+    }
+    .select{
+        &.mm{
+            min-width: 12rem;
+        }
+    }
+    @include respond(mobile){
+        .form-col-row-tit{
+            width:8rem;
+        }
+        .form-col-row-col{
+            width: calc(100% - 8rem);
+            &.has-txt{
+                display: flex;
+                align-items: center;
+                .input{
+                    width: 80%;
+                }
+            }
+        }
+    }
+}
+
+.mbr-hope{
+    .form-col-row-tit{
+        width:11rem;
+    }
+    .select{
+        &.mm{
+            min-width: 12rem;
+        }
+    } 
+    &-local{
+        .form-col-row-col{
+            width:calc(100% - 12rem)
+        }
+        .mbr-ranking{
+            display: flex;
+            align-items: center;
+            gap:2rem;
+            width:100%;
+            span{
+                font-size: 1.8rem;
+                color:$sub-color;
+            }
+            @include respond(mobile){
+                gap:1rem;
+                span{
+                    font-size: 1.3rem;
+                }
+                .select{
+                    width:calc(100% - 4rem);
+                    min-width: 10%;
+                }
+            }
+        }
+    }  
+    @include respond(mobile){
+        .form-col-row-tit{
+            width:8rem;
+        }
+        .form-col-row-col{
+            width: calc(100% - 8rem);
+            &.has-txt{
+                display: flex;
+                align-items: center;
+                .input{
+                    width: 80%;
+                }
+            }
+            &.yymm{
+                .select{
+                    min-width:30%;
+                    width:47%;
+                }
+            }
+        }
+    } 
+}
+
+.form-pass-change{
+    border:1px solid $border-color;
+    border-radius: $border-radius-md;
+    padding:6rem 2rem; 
+    @include spacing(margin-top,$space-pc-5,$space-mo-3);
+    .form-row{
+        display: flex;
+        align-items: flex-start;    
+        gap:2rem;  
+        max-width: 46%;
+        &:not(:first-child){
+            margin-top: 2rem
+        }
+       
+        margin:0 auto
+    }
+    .form-tit{
+        width:14.5rem;
+        font-size:1.8rem;
+        font-weight: 600;
+        letter-spacing: -0.36px;
+        padding-top:1.8rem
+    }
+    .form-col{
+        .input{
+            width:30rem;
+        }
+        .noti{
+            color:$sub-color;
+            font-weight: 300;
+            line-height: 1.37;
+            letter-spacing: -0.32px;
+            margin-top: 1rem;
+        }
+    }    
+
+    @include respond(laptop){
+        .form-row{
+           max-width: 60%; 
+        }
+        .form-tit{
+          width:18rem;
+        }
+        .form-col{
+            width:calc(100% - 18rem);
+            .input{
+                width:100%;
+            }
+        }
+    }
+    @include respond(mobile){
+        padding:3rem 2rem;
+        .form-row{
+            flex-direction: column;
+            max-width:100%;
+            gap:1rem;
+        }
+        .form-tit{
+            padding-top:0;
+            width:100%;
+            font-size:1.3rem;
+        }
+        .form-col{
+            font-size:1.3rem;
+            width:100%;
+            .input{
+                width:100%;
+            }
+        }
+    }
+
+}
+
+.password-enter{
+	border:1px solid $border-color;
+	border-radius:$border-radius-md;
+	padding:5rem 2rem;
+	@include flex-c;
+	gap:2rem;
+	@include spacing(margin-top,$space-pc-5,$space-mo-3);
+    label{
+        font-size: 1.8rem;
+        font-weight: 600;
+    }
+	.input{
+		width:40rem;
+	}
+    .btn-fill{
+        min-width:14rem;
+    }
+
+    @include respond(tablet){
+        .input{
+            width: 50%;
+        }
+    }
+    @include respond(mobile){
+        padding:3rem 2rem;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap:0;
+        label{
+            width:100%;
+            margin-bottom: 1rem;
+            font-size:1.3rem;
+        }
+        .input{
+            width: calc(100% - 10rem);
+        }
+        .btn-fill{
+            margin-left: 1rem;
+            height:4rem;
+            min-width: auto;
+        }
+    }
+}
+
+.input{
+    &.job{
+        margin-left:1rem;
+        width:calc(100% - 40rem)
+    }   
+}
+
+@include respond(mobile){    
+    .row{
+        flex-direction: column;
+        .col-th{
+            background: transparent;
+            padding:2rem 1rem 0;
+        }
+        .col-td{
+            width:100%;
+        }
+    }
+
+    .input{
+    &.job{
+        margin-left:0;
+        margin-top:1rem;
+        width:100%;
+    }   
+}
+}
+
+

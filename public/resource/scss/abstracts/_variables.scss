@@ -1,0 +1,115 @@
+/*abstracts/_variables.scss*/
+$font-family-pretendard:'pretendard', sans-serif;
+$font-family-libre:"Libre Baskerville", serif;
+$font-size-base:16px;
+$text-color:#222;
+$focus-outline:#0066cc;
+$img-path : '../images';
+
+$black:#000;
+$white:#fff;
+$gray22:#222;
+$gray33:#333;
+$gray55:#555;
+$gray66:#666;
+$gray77:#777;
+$gray88:#888;
+$gray99:#999;
+$graycc:#ccc;
+$graydd:#ddd;
+$grayda:#dadada;
+$grayef:#efefef;
+$grayf0:#f0f0f0;
+$grayf3:#f3f3f3;
+$grayf6:#f6f6f6;
+$grayf8:#f8f8f8;  
+
+$primary-color: #222; 
+$accent-color: #5B3A29;
+$accent-light:#CBA48C;
+$bg-light:#F0EDE7;
+$dark-color:#000000; // 다크 색상
+$light-color:#dadada; // 연한 회색
+$sub-color:#666;
+ 
+$header-size: 7rem;
+$header-size-tablet : 6rem;
+$header-size-mo : 5rem;
+$gnb-wrap-height: 32rem;
+$mo-lnb-size: 145px;
+// Spacing (간격 관련 변수)
+$spacer: 1rem; 
+$spacer-sm: 2rem; 
+$spacer-md: 5rem; 
+$spacer-lg: 6rem;
+$space-mo:3rem;
+$space-pc:5rem;
+$space-mo-1:1rem;
+$space-mo-2:2rem;
+$space-mo-3:3rem;
+$space-mo-4:4rem;
+$space-mo-5:5rem;
+$space-pc-1:1.5rem;
+$space-pc-2:2rem;
+$space-pc-3:3rem;
+$space-pc-4:4rem;
+$space-pc-5:5rem;
+$space-pc-6:6rem;
+$space-pc-8:8rem;
+$space-pc-9:9rem;
+$space-pc-10:10rem;
+// Border Radius (모서리 둥글게)
+$border-radius-sm: 0.3rem;
+$border-radius-md: 0.5rem;
+$border-radius-lg: 1.2rem;
+$border-color:$light-color;
+// Background Colors
+$background-th:$grayf3;
+$background-color-light: $light-color; // 배경 색상 (연한 회색)
+$background-color-dark: #2A2A2A; // 다크 모드 배경
+$btn-small-width:10rem;
+$btn-large-width:15rem;
+$font-styles: (
+    xs:(
+        font-size:1.2rem, 
+        line-height:1.4,
+        font-weight:400,
+        letter-spacing:0.01rem
+    ),
+    sm:(
+        font-size:1.4rem,
+        line-height: 1.5,
+        font-weight: 400,
+        letter-spacing: 0
+    ), 
+    base:(
+        font-size:1.6rem,
+        line-height: 1.5,
+        font-weight: 400,
+        letter-spacing: 0
+    ),     
+    md:(
+        font-size:1.8rem,
+        line-height: 1.5,
+        font-weight: 500,
+        letter-spacing: -0.01em
+    ),
+    lg:(
+        font-size:2rem,
+        line-height: 1.6,
+        font-weight: 600,
+        letter-spacing: -0.015em
+    ),  
+    xl:(
+        font-size:2.4rem,
+        line-height: 1.6,
+        font-weight: 600,
+        letter-spacing: -0.015em
+    ), 
+    xxl:(
+        font-size:3.2rem,
+        line-height: 1.6,
+        font-weight: 700,
+        letter-spacing: -0.015em
+    )
+);

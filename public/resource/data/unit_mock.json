@@ -1,0 +1,444 @@
+{
+  "types": [
+    {
+      "type": "84A",
+      "options": [
+        {
+          "number": "1",
+          "label": "Interior",
+          "title": "SENSIBLE BALANCE",
+          "t1" :"센서블 밸런스",
+          "t2" :"\"절제된 구성 속에서 드러나는 고요한 품격\"<br>자연의 질감을 담아낸 마감과 재료의 균형, 그 본질에서 완성되는 깊이 있는 우아함",
+          "details": [],
+          "image": "interior-84A.png",
+          "imageMo": "interior-84A-mo.png",
+          "alt": "84A 인터리어"
+        },
+        {
+          "number": "2",
+          "label": "평면도",
+          "title": "",
+          "details": [
+            "레저 라이프를 위한 현관창고, 복도 팬트리",
+            "소비자의 니즈에 맞춰 변모하는 가변형 침실",
+            "가족 소통의 중심이 되는 대면형 주방",
+            "편리함을 강조한 동선 최적화 다용도실",
+            "프라이빗한 생활을 완성하는 마스터 알파존"
+          ],
+          "image": "84A-f1.png",
+          "imageMo": "84A-f1-mo.png",
+          "alt": "84A 기본형 평면도"
+        },
+        {
+          "number": "3",
+          "label": "다이닝 키친",
+          "title": "다이닝 키친",
+          "t1":"주방+팬트리 특화+다용도실 특화",
+          "details": [
+            "독립형 아일랜드와 와이드 주방"
+          ],
+          "image": "84A-f2.png",
+          "imageMo": "84A-f2-mo.png",
+          "alt": "84A 다이닝 키친 평면도"
+        },
+        {
+          "number": "4",
+          "label": "디럭스 키친",
+          "title": "디럭스 키친",
+          "t1":"주방+팬트리 특화+다용도실 특화",
+          "details": [
+            "보조 주방과 와이드 아일랜드, 장식장"
+          ],
+          "image": "84A-f3.png",
+          "imageMo": "84A-f3-mo.png",
+          "alt": "84A 디럭스 키친 평면도"
+        },
+        {
+          "number": "5",
+          "label": "스마트 유틸리티",
+          "title": "스마트 유틸리티",
+          "t1" :"팬트리+다용도실 특화",
+          "details": [
+            "순환동선의 건식세탁공간과 붙박이장"
+          ],
+          "image": "84A-f4.png",
+          "imageMo": "84A-f4-mo.png",
+          "alt": "84A 스마트 유틸리티 평면도"
+        },
+        {
+          "number": "6",
+          "label": "드레스룸 특화",
+          "title": "드레스룸 특화",
+          "t1": "마스터 와이드 드레스룸",
+          "details": [
+            "디럭스 파우더장과 드레스룸"
+          ],
+          "image": "84A-f5.png",
+          "imageMo": "84A-f5-mo.png",
+          "alt": "84A 드레스룸 특화 평면도"
+        },
+        {
+          "number": "7",
+          "label": "플러스 스토리지",
+          "title": "플러스 스토리지",
+          "t1" :"수납 특화",
+          "details": [
+            "침실공간을 활용한 복도 팬트리와 침실 드레스룸"
+          ],
+          "image": "84A-f6.png",
+          "imageMo": "84A-f6-mo.png",
+          "alt": "84A 플러스 스토리지 평면도"
+        }
+      ]
+    },
+    {
+      "type": "84B",
+      "options": [
+        {
+          "number": "1",
+          "label": "Interior",
+          "title": "SENSIBLE BALANCE",
+          "t1" :"센서블 밸런스",
+          "t2" :"\"절제된 구성 속에서 드러나는 고요한 품격\"<br>자연의 질감을 담아낸 마감과 재료의 균형, 그 본질에서 완성되는 깊이 있는 우아함",
+          "details": [],
+          "image": "interior-84B.png",
+          "imageMo": "interior-84B-mo.png",
+          "alt": "84B 인터리어"
+        },
+        {
+          "number": "2",
+          "label": "평면도",
+          "title": "",
+          "details": [
+            "레저 라이프를 위한 현관창고, 복도 팬트리",
+            "수납 구성을 통해 편리한 사용성을 높인 드레스룸",
+            "다이닝과 거실의 연계를 통해 활용도를 극대화한 주방",
+            "편리함을 강조한 동선 최적화 다용도실",
+            "소비자의 니즈에 맞춰 변모하는 가변형 침실"
+          ],
+          "image": "84B-f1.png",
+          "imageMo": "84B-f1-mo.png",
+          "alt": "84B 기본형"
+        },
+        {
+          "number": "3",
+          "label": "다이닝 키친",
+          "title": "다이닝 키친",
+          "t1":"주방+다용도실 특화",
+          "details": [
+            "와이드 아일랜드와 보조주방"
+          ],
+          "image": "84B-f2.png",
+          "imageMo": "84B-f2-mo.png",
+          "alt": "84B 다이닝 키친 평면도"
+        },
+        {
+          "number": "4",
+          "label": "히든 키친",
+          "title": "히든 키친",
+          "t1":"주방+다용도실 특화",
+          "details": [
+            "정돈된 환경을 제공하는 거실과 분리된 조리공간"
+          ],
+          "image": "84B-f3.png",
+          "imageMo": "84B-f3-mo.png",
+          "alt": "84B 히든 키친 평면도"
+        },
+        {
+          "number": "5",
+          "label": "플러스 스토리지",
+          "title": "플러스 스토리지",
+          "t1" :"수납 특화",
+          "details": [
+            "침실공간을 활용한 복도 팬트리와 침실 드레스룸"
+          ],
+          "image": "84B-f4.png",
+          "imageMo": "84B-f4-mo.png",
+          "alt": "84B 플러스 스토리지 평면도"
+        }
+      ]
+    },
+    {
+      "type": "74A",
+      "options": [
+        {
+          "number": "1",
+          "label": "Interior",
+          "title": "REFINED MODERN",
+          "t1" :"리파인드 모던",
+          "t2" :"\"자극적이지 않은, 오래 머물고 싶은 쾌적함\" <br>일상 속에서 시간이 지날수록 그 가치를 느끼게 되는 공간",
+          "details": [],
+          "image": "interior-74A.png",
+          "imageMo": "interior-74A-mo.png",
+          "alt": "74A 인터리어"
+        },
+        {
+          "number": "2",
+          "label": "평면도",
+          "title": "",
+          "details": [
+            "공간 효율을 극대화한 현관창고, 복도 팬트리",
+            "소비자의 니즈에 맞춰 변모하는 가변형 침실",
+            "가족 소통의 중심이 되는 대면형 주방",
+            "편리함을 강조한 동선 최적화 다용도실",
+            "프라이빗한 생활을 완성하는 마스터 알파존"
+          ],
+          "image": "74A-f1.png",
+          "imageMo": "74A-f1-mo.png",
+          "alt": "74A 기본형 평면도"
+        },
+        {
+          "number": "3",
+          "label": "다이닝 키친",
+          "title": "다이닝 키친",
+          "t1":"주방+팬트리 특화+다용도실 특화",
+          "details": [
+            "독립형 아일랜드와 와이드 주방"
+          ],
+          "image": "74A-f2.png",
+          "imageMo": "74A-f2-mo.png",
+          "alt": "74A 다이닝 키친 평면도"
+        },
+        {
+          "number": "4",
+          "label": "디럭스 키친",
+          "title": "디럭스 키친",
+          "t1":"주방+팬트리 특화+다용도실 특화",
+          "details": [
+            "와이드 주방과 디럭스 아일랜드"
+          ],
+          "image": "74A-f3.png",
+          "imageMo": "74A-f3-mo.png",
+          "alt": "74A 디럭스 키친 평면도"
+        },
+        {
+          "number": "5",
+          "label": "스마트 유틸리티",
+          "title": "스마트 유틸리티",
+          "t1" :"팬트리+다용도실 특화",
+          "details": [
+            "순환동선의 건식세탁공간과 붙박이장"
+          ],
+          "image": "74A-f4.png",
+          "imageMo": "74A-f4-mo.png",
+          "alt": "74A 스마트 유틸리티 평면도"
+        },
+        {
+          "number": "6",
+          "label": "드레스룸 특화",
+          "title": "드레스룸 특화",
+          "t1": "마스터 와이드 드레스룸",
+          "details": [
+            "디럭스 파우더장과 드레스룸"
+          ],
+          "image": "74A-f5.png",
+          "imageMo": "74A-f5-mo.png",
+          "alt": "74A 드레스룸 특화 평면도"
+        },
+        {
+          "number": "7",
+          "label": "플러스 스토리지",
+          "title": "플러스 스토리지",
+          "t1" :"수납 특화",
+          "details": [
+            "침실공간을 활용한 복도 팬트리와 침실 드레스룸"
+          ],
+          "image": "74A-f6.png",
+          "imageMo": "74A-f6-mo.png",
+          "alt": "74A 플러스 스토리지 평면도"
+        }
+      ]
+    },
+    {
+      "type": "74B",
+      "options": [
+        {
+          "number": "1",
+          "label": "Interior",
+          "title": "REFINED MODERN",
+          "t1" :"리파인드 모던",
+          "t2" :"\"자극적이지 않은, 오래 머물고 싶은 쾌적함\"<br>일상 속에서 시간이 지날수록 그 가치를 느끼게 되는 공간",
+          "details": [],
+          "image": "interior-74B.png",
+          "imageMo": "interior-74B-mo.png",
+          "alt": "74B 인터리어"
+        },
+        {
+          "number": "2",
+          "label": "평면도",
+          "title": "",
+          "details": [
+            "공간 효율을 극대화한 현관창고",
+            "수납 구성을 통해 편리한 사용성을 높인 드레스룸",
+            "다이닝과 거실의 연계를 통해 활용도를 극대화한 주방",
+            "편리함을 강조한 동선 최적화 다용도실",
+            "소비자의 니즈에 맞춰 변모하는 가변형 침실"
+          ],
+          "image": "74B-f1.png",
+          "imageMo": "74B-f1-mo.png",
+          "alt": "74B 기본형 평면도"
+        },
+        {
+          "number": "3",
+          "label": "다이닝 키친",
+          "title": "다이닝 키친",
+          "t1":"주방+다용도실 특화",
+          "t2":"",
+          "details": [
+            "와이드 아일랜드와 보조주방"
+          ],
+          "image": "74B-f2.png",
+          "imageMo": "74B-f2-mo.png",
+          "alt": "74B 다이닝 키친 평면도"
+        },
+        {
+          "number": "4",
+          "label": "히든 키친",
+          "title": "히든 키친",
+          "t1":"주방+다용도실 특화",
+          "details": [
+            "정돈된 환경을 제공하는 거실과 분리된 조리공간"
+          ],
+          "image": "74B-f3.png",
+          "imageMo": "74B-f3-mo.png",
+          "alt": "74B 히든 키친 평면도"
+        },
+        {
+          "number": "5",
+          "label": "플러스 스토리지",
+          "title": "플러스 스토리지",
+          "t1" :"수납 특화",
+          "details": [
+            "침실공간을 활용한 복도 팬트리와 침실 드레스룸"
+          ],
+          "image": "74B-f4.png",
+          "imageMo": "74B-f4-mo.png",
+          "alt": "74B 플러스 스토리지 평면도"
+        }
+      ]
+    },
+    {
+      "type": "59A",
+      "options": [
+        {
+          "number": "1",
+          "label": "Interior",
+          "title": "MINIMAL BLOOM",
+          "t1" :"미니멀 블룸",
+          "t2" :"\"감각으로 채운 일상의 여백\" <br>밝고 부드러운 베이스에 생기있는 하나의 포인트가 <br>미니멀한 감각의 균형을 이루는 공간",
+          "details": [],
+          "image": "interior-59A.png",
+          "imageMo": "interior-59A-mo.png",
+          "alt": "59A 인터리어"
+        },
+        {
+          "number": "2",
+          "label": "평면도",
+          "title": "",
+          "details": [
+            "효율적인 동선과 공간 활용을 동시에 잡는 주방",
+            "라이프스타일에 맞춰 기능이 확장되는 침실",
+            "편리함을 강조한 동선 최적화 다용도실"
+          ],
+          "image": "59A-f1.png",
+          "imageMo": "59A-f1-mo.png",
+          "alt": "59A 기본형 평면도"
+        },
+        {
+          "number": "3",
+          "label": "다이닝 키친",
+          "title": "다이닝 키친",
+          "t1":"주방 특화",
+          "t2":"",
+          "details": [
+            "다이닝 기능을 확장한 홈바형 주방"
+          ],
+          "image": "59A-f2.png",
+          "imageMo": "59A-f2-mo.png",
+          "alt": "59A 다이닝 키친 평면도"
+        },
+        {
+          "number": "4",
+          "label": "드레스룸 특화",
+          "title": "드레스룸 특화",
+          "t1":"마스터 와이드 드레스룸",
+          "t2":"",
+          "details": [
+            "침실공간을 활용한 디럭스 드레스룸"
+          ],
+          "image": "59A-f3.png",
+          "imageMo": "59A-f3-mo.png",
+          "alt": "59A 드레스룸 특화 평면도"
+        }
+      ]
+    },
+    {
+      "type": "59B",
+      "options": [
+        {
+          "number": "1",
+          "label": "Interior",
+          "title": "MINIMAL BLOOM",
+          "t1" :"미니멀 블룸",
+          "t2" :"\"감각으로 채운 일상의 여백\" <br>밝고 부드러운 베이스에 생기있는 하나의 포인트가 <br>미니멀한 감각의 균형을 이루는 공간",
+          "details": [],
+          "image": "interior-59B.png",
+          "imageMo": "interior-59B-mo.png",
+          "alt": "59B 인터리어"
+        },
+        {
+          "number": "2",
+          "label": "평면도",
+          "title": "",
+          "details": [
+            "효율적인 동선과 공간 활용을 동시에 잡는 주방",
+            "수납 구성을 통해 편리한 사용성을 높인 드레스룸",
+            "라이프스타일에 맞춰 기능이 확장되는 침실",
+            "편리함을 강조한 동선 최적화 다용도실"
+          ],
+          "image": "59B-f1.png",
+          "imageMo": "59B-f1-mo.png",
+          "alt": "59B 기본형 평면도"
+        },
+        {
+          "number": "3",
+          "label": "다이닝 키친",
+          "title": "다이닝 키친",
+          "t1":"주방+다용도실 특화",
+          "t2":"",
+          "details": [
+            "다이닝 기능을 확장한 홈바형 주방"
+          ],
+          "image": "59B-f2.png",
+          "imageMo": "59B-f2-mo.png",
+          "alt": "59B 다이닝 키친 평면도"
+        },
+        {
+          "number": "4",
+          "label": "플러스 스토리지",
+          "title": "플러스 스토리지",
+          "t1":"수납 특화",
+          "t2":"",
+          "details": [
+            "침실공간을 활용한 디럭스 드레스룸"
+          ],
+          "image": "59B-f3.png",
+          "imageMo": "59B-f3-mo.png",
+          "alt": "59B 플러스 스토리지 평면도"
+        },
+        {
+          "number": "5",
+          "label": "패밀리 라운지",
+          "title": "패밀리 라운지",
+          "t1" :"수납 특화",
+          "details": [
+            "침실공간을 활용한 가족실"
+          ],
+          "image": "59B-f4.png",
+          "imageMo": "59B-f4-mo.png",
+          "alt": "59B 패밀리 라운지 평면도"
+        }
+      ]
+    }
+  ]
+}

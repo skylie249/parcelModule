@@ -1,0 +1,308 @@
+@use '../abstracts' as *;
+
+.ico{    
+    &-search{
+        @include ico(2.8rem, 2.8rem);
+        background-image: svg(search,"ffffff");
+        background-size: auto 100%;
+    }
+    &-home{
+        @include ico(2rem,2rem);
+        background-image: svg(home,"000000");   
+    }
+    &-home2{
+        @include ico(2.5rem,2.5rem);
+        background-image: svg(home2,"ffffff");   
+    }
+    &-prev{
+        @include ico(1rem,1.8rem);
+        background-image: svg(prev,"ffffff");  
+        background-size: auto 100%;
+    }
+    &-next{
+        @include ico(1rem,1.8rem);
+        background-image: svg(next,"ffffff");
+        background-size: auto 100%;         
+    }
+    &-pause{
+        @include ico(1rem,1.8rem);
+        background-image: svg(pause,"ffffff");   
+        background-size: auto 100%;      
+    }
+    &-toTop{
+        @include ico(8rem,8rem);
+        background-image: svg(toTop,"222222");   
+        background-size: auto 100%;  
+    }
+    &-quick{
+        @include ico(3.6rem,3.6rem);
+        background-image: svg(quick,"ffffff");   
+        background-size: auto 100%;  
+    }
+    &-arr{
+        @include ico(0.6rem,1.2rem);
+        background-image: svg(linkArr,"B68C6C");
+        background-size: auto 100%;
+    }
+    &-arrb{
+        @include ico(0.6rem,1.2rem);
+        background-image: svg(linkArrB,"222222");
+        background-size: auto 100%;
+    }
+    &-login{
+        @include ico(2.6rem,2.6rem);
+        background-image: svg(login,"ffffff");
+        background-size: auto 100%;
+    }
+     &-logout{
+        @include ico(2.6rem,2.6rem);
+        background-image: svg(logout,"ffffff");
+        background-size: auto 100%;
+    }
+    &-instagram{
+        @include ico(3.2rem,3.2rem);
+        background-image: svg(insta,"777777");
+        background-size:cover;
+    }
+    &-youtube{
+        @include ico(3.2rem,3.2rem);
+        background-image: svg(youtube,"777777");
+        background-size:cover;
+    }
+    &-kakaoch{
+        @include ico(3.2rem,3.2rem);
+        background-image: svg(kakao,"777777");
+        background-size:cover;
+    }
+    &-arr-up{
+        @include ico(1.2rem,0.8rem);
+        background-image: svg(arrUp,"ffffff");
+        background-size:cover;
+    }
+    &-arrow{
+        @include ico(3.7rem,2.3rem);
+        background-image: svg(arrow,"ffffff");
+        background-size:cover;
+    }
+    &-arrow-short {
+        @include ico(2rem, 1.4rem);
+        background-image: svg(arrowShort,"ffffff");
+        background-size: cover;
+    }
+    &-danji{
+        @include ico(3.2rem,3rem);
+        background-image: svg(danji,"777777");
+        background-size:cover;
+    }
+    &-cashSh{
+        @include ico(3.5rem,3.2rem);
+        background-image: svg(cashSh,"777777");
+        background-size:cover;       
+    }
+    &-pencil{
+        @include ico(2.9rem,2.9rem);
+        background-image: svg(pencil,"777777");
+        background-size:cover;
+    }
+    &-book{
+        @include ico(3.2rem,3.2rem);
+        background-image: svg(book,"777777");
+        background-size:cover;
+    }
+    &-calendar{
+        @include ico(2.8rem,3rem);
+        background-image: svg(calendar,"AC826C");
+        background-size:cover;
+    }
+    &-headset{
+        @include ico(2.5rem,3.2rem);
+        background-image: svg(headset,"777777");
+        background-size:cover;
+    }
+    &-talk{
+        @include ico(3.2rem,3.2rem);
+        background-image: svg(talk,"777777");
+        background-size:cover;
+    }
+    &-close{
+        @include ico(1.8rem,1.8rem);
+        background-image: svg(close,"222222");
+        background-size:cover;
+    }
+    &-pNext{
+        @include ico(5.4rem,5.4rem);
+        background-image: svg(pNext,"222222");
+        background-size:cover;
+    }
+    &-pEnd{
+        @include ico(1.8rem,1.8rem);
+        background-image: svg(pEnd,"222222");
+        background-size:cover;
+    }
+    
+    &-outlink{
+        @include ico(2.4rem,2.4rem);
+        background-image: svg(out,"222222");
+        background-size:cover;
+    }
+    &-zoom{
+        @include ico(8rem,8rem);
+        background-image: svg(zoom,"ffffff");
+        background-size:cover;
+    }
+    &-hand{
+        width:6rem;
+        height:6rem;
+        border:1px solid $light-color;
+        border-radius: 50%;;
+        background:#fff url(#{$img-path}/common/ico-hand.svg) no-repeat 50% 50%;       
+    }
+    &-bigX{
+        @include ico(7.4rem,7.4rem);
+        background-image: svg(bigX,"222222");
+        background-size:cover;
+        
+    }
+    &-phone{
+        @include ico(2rem,2rem);
+        background-image: svg(phone,"222222");
+        background-size:cover;
+    }
+    &-email{
+        @include ico(2.06rem,1.4rem);
+        background-image: svg(email,"222222");
+        background-size:cover;
+    }
+    &-mouse{
+        @include ico(1.7rem,2.2rem);
+        background-image: svg(mouse,"222222");
+        background-size:cover;
+    }
+    &-tIco1{
+        @include ico(2.4rem,2.4rem);
+        background-image: svg(tIco1,"222222");
+        background-size:cover;
+    }
+    &-tIco2{
+        @include ico(2.4rem,2.4rem);
+        background-image: svg(tIco2,"222222");
+        background-size:cover;
+    }
+    &-tIco3{
+        @include ico(2.4rem,2.4rem);
+        background-image: svg(tIco3,"222222");
+        background-size:cover;
+    }
+    &-tList{
+        @include ico(2.4rem,2.4rem);
+        background-image: svg(tList,"222222");
+        background-size:cover;
+    }
+    &-tMap{
+        @include ico(2.4rem,2.4rem);
+        background-image: svg(tMap,"222222");
+        background-size:cover;
+    }
+    &-phone{
+        @include ico(2.4rem,2.4rem);
+        background: url(#{$img-path}/common/ico-phone.svg) no-repeat 50% 50%;
+        background-size: cover;
+    }
+    &-time{
+        @include ico(2rem,2rem);
+        background: url(#{$img-path}/common/ico-time.svg) no-repeat 50% 50%;
+        background-size: cover;
+    }
+    &-info{
+        @include ico(2rem,2rem);
+        background: url(#{$img-path}/common/ico-info.svg) no-repeat 50% 50%;
+        background-size: cover;
+    }
+    &-addr{
+        @include ico(2rem,2rem);
+        background: url(#{$img-path}/common/ico-addr.svg) no-repeat 50% 50%;
+        background-size: cover;
+    }
+    &-hp{
+        @include ico(2rem,2rem);
+        background-image: svg(hp,"222222");
+        background-size: auto 100%;
+    }   
+    &-down{
+        @include ico(1.4rem,1.2rem);
+        background-image: svg(down,"222222");
+        background-size: auto 100%;
+    }
+    &-award{
+        @include ico(3.2rem,3.5rem);
+        background-image: svg(award,"222222");
+        background-size: 100% auto;
+    }
+    &-like{
+        @include ico(3.2rem, 2.7rem);
+        background-image: svg(like,"777777");
+        background-size: 100% auto;
+    }
+}
+
+.ico-plus{
+    display: inline-block;
+    vertical-align: top;
+    width:3rem;
+    height:3rem;
+    position: relative;
+    &::before,
+    &::after{
+        content: '';
+        display: block;
+        width:100%;
+        height:1px;
+        background: $black;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        transform-origin: center;
+    }
+    &::after{
+        transform:translate(-50%, -50%) rotate(-90deg);
+    }
+
+}
+
+.ico-top {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+
+  // 몸통 (세로줄)
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    height: 16px;
+    background: $white;
+    transform: translateX(-50%);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    width: 11px;
+    height: 11px;
+    border-top: 2px solid $white;
+    border-left: 2px solid $white;
+    transform: translate(-50%, 0) rotate(45deg);
+  }
+}
+
+
+
+
+
+

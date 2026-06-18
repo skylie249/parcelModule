@@ -1,0 +1,97 @@
+/*base/_typography.scss */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+.libre-baskerville-regular{
+	font-family: "Libre Baskerville", serif;
+	font-weight: 400;
+	font-style: normal;
+}
+.libre-baskerville-bold {
+	font-family: "Libre Baskerville", serif;
+	font-weight: 700;
+	font-style: normal;
+}
+.libre-baskerville-regular-italic {
+	font-family: "Libre Baskerville", serif;
+	font-weight: 400;
+	font-style: italic;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+.playfair-display {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+	font-family: 'pretendard';
+	font-weight: 100;
+    font-style: normal;
+	src: url('../fonts/Pretendard-Thin.woff2') format('woff2');
+    font-display: swap;
+}
+@font-face {
+	font-family: 'pretendard';
+	font-weight: 200;
+    font-style: normal;
+	src: url('../fonts/Pretendard-ExtraLight.woff2') format('woff2');
+    font-display: swap;
+}
+@font-face {
+	font-family: 'pretendard';
+	font-weight: 300;
+    font-style: normal;
+	src: url('../fonts/Pretendard-Light.woff2') format('woff2');
+    font-display: swap;
+}
+@font-face {
+	font-family: 'pretendard';
+	font-weight: 400;
+    font-style: normal;
+	src: url('../fonts/Pretendard-Regular.woff2') format('woff2');
+    font-display: swap;
+}
+@font-face {
+	font-family: 'pretendard';
+	font-weight: 500;
+    font-style: normal;
+	src: url('../fonts/Pretendard-Medium.woff2') format('woff2');
+    font-display: swap;
+}
+@font-face {
+	font-family: 'pretendard';
+	font-weight: 600;
+    font-style: normal;
+	src: url('../fonts/Pretendard-SemiBold.woff2') format('woff2');
+    font-display: swap;
+}
+@font-face {
+	font-family: 'pretendard';
+	font-weight: 700;
+    font-style: normal;
+	src: url('../fonts/Pretendard-Bold.woff2') format('woff2');
+    font-display: swap;
+}
+@font-face {
+	font-family: 'pretendard';
+	font-weight: 800;
+    font-style: normal;
+	src: url('../fonts/Pretendard-ExtraBold.woff2') format('woff2');
+    font-display: swap;
+}
+@font-face {
+	font-family: 'pretendard';
+	font-weight: 900;
+    font-style: normal;
+	src: url('../fonts/Pretendard-Black.woff2') format('woff2');
+    font-display: swap;
+}
+
+
+
+
+
+
+

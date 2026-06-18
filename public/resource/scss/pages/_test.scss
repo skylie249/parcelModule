@@ -1,0 +1,219 @@
+@use "../abstracts" as *;
+
+
+/*test*/
+.fullSectionSwp {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.full-slide {
+    position: relative;
+    width:100%;
+    height: 100%;    
+    .bg {
+        width: 100%;
+        height: 100%;       
+    }
+    .desc {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        &-item {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1rem,1.39vw,2rem);
+            color: white;
+            position:absolute;
+        }
+        &-item > * {
+            display: block;
+            will-change: transform, opacity;
+       
+        }
+        .bx {
+            background: #1964D8;
+            font-size: clamp(1.3rem, 1.67vw, 1.6rem);
+            min-width: clamp(15rem,13.89vw,20rem);
+            height: clamp(3rem,2.78vw,4rem);
+            font-weight: 600;
+            padding:0 3rem;
+            @include flex-c;
+            line-height:1;
+            margin:0 auto;
+            &.green {
+                background: #458116;
+            }
+            &.orange {
+                background: #CD7223;
+            }
+        }
+        .tx {
+            font-weight: 600;
+            font-size: clamp(1.3rem, 1.67vw, 2rem);
+        }
+        h4 {
+            font-size: clamp(2rem,2.92vw,4.2rem);
+            font-weight: 700;
+            letter-spacing: -0.84px;
+        }
+        .tx-lg {
+            line-height: 1.5;
+        }   
+       
+    }    
+    .ext-bg1 {
+        background:url(#{$img-path}/complex/ext-f1.jpg) no-repeat 50% 50%;
+        background-size: cover; 
+    }
+    .ext-bg2 {
+        background:url(#{$img-path}/complex/ext-f2.jpg) no-repeat 50% 50%;
+        background-size: cover; 
+    }
+    .ext-bg3 {
+        background:url(#{$img-path}/complex/ext-f3.jpg) no-repeat 50% 50%;
+        background-size: cover; 
+    }
+    .ext-bg4 {
+        background:url(#{$img-path}/complex/ext-f4.jpg) no-repeat 50% 50%;
+        background-size: cover; 
+    }
+    .ext-bg5 {
+        background:url(#{$img-path}/complex/ext-f5.jpg) no-repeat 50% 50%;
+        background-size: cover; 
+    }
+    .ext-tx1 {
+        bottom: 13.33%;
+        left: 12.50%;
+        text-align: right;
+    }
+    .ext-tx2 {
+        top: 13.52%;
+        right: 10.42%;
+    }
+    .ext-tx3 {
+        left: 16.67%;
+        bottom: 13.89%;
+        text-align: right;
+    }
+    .ext-tx4 {
+        top: 13.89%;
+        right: 10.42%;
+    }
+    .ext-tx5 {
+        left: 16.67%;
+        bottom: 13.89%;
+        text-align: right;
+    }
+    .land-bg1 {
+        background:url(#{$img-path}/complex/land-f1.jpg) no-repeat 50% 50%;
+        background-size: cover; 
+    }
+    .land-bg2 {
+        background:url(#{$img-path}/complex/land-f2.jpg) no-repeat 50% 50%;
+        background-size: cover; 
+    }
+    .land-bg3 {
+        background:url(#{$img-path}/complex/land-f3.jpg) no-repeat 50% 50%;
+        background-size: cover; 
+    }
+    .land-tx1,
+    .land-tx2,
+    .land-tx3 {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+    
+    }
+
+    .comuty-bg1 {
+        background:url(#{$img-path}/complex/community-f1.jpg) no-repeat 50% 50%;
+        background-size: cover; 
+    }
+    .comuty-bg2 {
+        background:url(#{$img-path}/complex/community-f2.jpg) no-repeat 50% 50%;
+        background-size: cover; 
+    }
+    .comuty-bg3 {
+        background:url(#{$img-path}/complex/community-f3.jpg) no-repeat 50% 50%;
+        background-size: cover; 
+    }
+    .comuty-bg4 {
+        background:url(#{$img-path}/complex/community-f4.jpg) no-repeat 50% 50%;
+        background-size: cover; 
+    }
+    .comuty-tx1,
+    .comuty-tx2,
+    .comuty-tx3,
+    .comuty-tx4{
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+    }
+
+    @include respond(mobile) { 
+        .btnOpen {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border: 1px solid lime;
+        }
+       
+        .ext-tx1,
+        .ext-tx2,
+        .ext-tx3,
+        .ext-tx4,
+        .ext-tx5 {
+            left: 2rem;
+            bottom: 5rem;
+            top:initial;
+            right: initial;
+            text-align: left;        
+        }
+        .ext-tx3 {
+            top: 5rem;
+            bottom: initial;
+        }
+        .desc-item {
+            width: 90%;
+        }
+
+
+        .comuty-tx1,
+        .comuty-tx2,
+        .comuty-tx3,
+        .comuty-tx4{
+            top:9.9%;
+            transform: translate(-50%, 0);
+        }
+
+        .comuty-tx1 {
+            width: 72%;
+        }
+        .comuty-tx3,
+        .comuty-tx4 {
+            width: 78%;
+        }
+
+        .land-tx1,
+        .land-tx2,
+        .land-tx3{
+            top:initial;
+            transform: translate(-50%, 0);
+            bottom: 5rem;
+        }
+    
+    }
+}
+
