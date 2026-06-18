@@ -178,7 +178,7 @@ const Layout = () => {
                 <div className="header-util-log">
                     <button type="button" className="bgSoundBtn"><i>SOUND ON</i></button>
                     <audio id="bgm" muted loop>
-                        <source src="/resource/images/video/alex-morgan-bright-corporate-story-541027.mp3" type="audio/mp3" />
+                        <source src="/resource/images/video/jonasblakewood-corporate-background-524146.mp3" type="audio/mp3" />
                     </audio>
                     <button type="button" className="btn-login">
                         <i className="ico-logout" aria-hidden="true"></i><span className="blind">로그아웃</span>
