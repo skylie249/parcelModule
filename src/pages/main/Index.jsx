@@ -1,10 +1,20 @@
 import React, { useEffect } from 'react';
 
+/**
+ * [Code Review]
+ * 메인 페이지 컴포넌트입니다.
+ * 개선 권장 사항:
+ * 1. 전역 ScrollTrigger 객체 관리 방식 개선 (GSAP 사용 시 React의 useLayoutEffect와 gsap.context 활용 권장)
+ * 2. 반복되는 슬라이드, VR 버튼 요소를 배열 매핑으로 리팩토링
+ */
 const Index = () => {
   useEffect(() => {
     if (window.initMain) setTimeout(() => window.initMain(), 50);
     if (window.initVr) setTimeout(() => window.initVr(), 50);
     return () => {
+      // [Code Review] ScrollTrigger 등 전역 플러그인을 정리할 때는, 
+      // React 18의 StrictMode에서 두 번 호출되는 문제를 방지하기 위해 
+      // gsap.context()를 사용하는 최신 GSAP-React 패턴 적용을 권장합니다.
       if (window.ScrollTrigger) {
         window.ScrollTrigger.getAll().forEach(t => t.kill());
         window.ScrollTrigger.clearScrollMemory?.();
@@ -121,6 +131,7 @@ const Index = () => {
                     </picture>
                   </div>
                   <h3>VR 단지 투어</h3>
+                  {/* [Code Review] 아래 VR 버튼들은 구조가 동일하므로, 데이터 배열(예: vrList)을 선언한 뒤 map() 함수로 렌더링하면 코드가 훨씬 깔끔해집니다. */}
                   <button type="button" className="vr-btn vr-btn1" data-url="2aec6539d5c14a929dd7973fd733da7b/4" data-title="SK VIEW 보행자 출입구 VR"><span className="vr-pin"><span className="txt">보행자<br />출입구</span></span><span className="shadow"></span></button>
                   <button type="button" className="vr-btn vr-btn2" data-url="2aec6539d5c14a929dd7973fd733da7b/1" data-title="SK VIEW 중앙광장 VR"><span className="vr-pin"><span className="txt">중앙광장</span></span><span className="shadow"></span></button>
                   <button type="button" className="vr-btn vr-btn3" data-url="2aec6539d5c14a929dd7973fd733da7b/3" data-title="SK VIEW 어린이 놀이터 VR"><span className="vr-pin"><span className="txt">어린이<br />놀이터</span></span><span className="shadow"></span></button>

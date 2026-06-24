@@ -1,5 +1,12 @@
 import React, { useEffect } from 'react';
 
+/**
+ * [Code Review]
+ * VR 단지 투어 페이지입니다.
+ * 개선 권장 사항:
+ * Index.jsx의 VR 영역과 중복되는 코드가 많습니다. 
+ * VR 영역 전체를 독립적인 <VrViewer /> 컴포넌트로 분리하여 재사용성을 높이는 것을 권장합니다.
+ */
 const VrTour = () => {
   useEffect(() => {
     if (window.initVr) {

@@ -18,6 +18,9 @@ import Items from './pages/unit/Items';
 import VrTour from './pages/vr/VrTour';
 import ErrorPage from './pages/ErrorPage';
 
+// [Code Review] 현재 모든 페이지 컴포넌트를 한 번에 import 하고 있습니다.
+// 애플리케이션 규모가 커질 경우 초기 로딩 속도 지연을 방지하기 위해 React.lazy()를 활용한 Code Splitting 도입을 강력히 권장합니다.
+// 예: const Intro = lazy(() => import('./pages/main/Intro'));
 function App() {
   return (
     <Router>

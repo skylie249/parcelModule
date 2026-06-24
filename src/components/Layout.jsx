@@ -1,20 +1,34 @@
 import React, { useEffect } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 
+/**
+ * [Code Review]
+ * 전체 애플리케이션의 레이아웃을 담당하는 컴포넌트입니다.
+ * 개선 권장 사항:
+ * 1. 글로벌 객체(window.initCommon 등) 의존성 최소화 혹은 캡슐화 필요
+ * 2. 직접적인 DOM 조작(document.querySelector) 대신 React의 상태(useState)와 Ref(useRef) 활용 권장
+ * 3. 반복되는 GNB 메뉴 항목을 배열 데이터(상수)로 분리하여 렌더링하면 유지보수가 용이해집니다.
+ */
 const Layout = () => {
     const location = useLocation();
 
     useEffect(() => {
+        // [Code Review] 외부 스크립트의 전역 함수를 호출하는 방식입니다.
+        // 향후 React 생태계 내의 컴포넌트나 커스텀 훅으로 마이그레이션하는 것을 고려해 보세요.
         if (window.initCommon) window.initCommon();
     }, []);
 
     useEffect(() => {
         if (window.initCommonPage) window.initCommonPage();
         if (location.pathname !== '/main' && location.pathname !== '/intro') {
+            // [Code Review] setTimeout을 사용하는 것은 렌더링 타이밍 문제를 우회하기 위한 것으로 보입니다.
+            // 하위 컴포넌트의 마운트가 완료된 시점을 보장해야 한다면, 해당 하위 컴포넌트의 useEffect 내부에서 초기화 로직을 호출하는 것이 더 안전합니다.
             if (window.initSub) setTimeout(() => window.initSub(), 50);
         }
 
         // 라우트가 변경될 때 열려있는 메뉴 닫기
+        // [Code Review] React에서는 document.querySelector를 통한 직접적인 DOM 조작을 지양하는 것이 좋습니다.
+        // GNB 열림/닫힘 상태를 useState로 관리하고, 동적으로 클래스네임(className={`header ${isOpen ? 'on' : ''}`})을 부여하는 방식으로 리팩토링을 강력히 권장합니다.
         const header = document.querySelector('#header');
         const btnNavbar = document.querySelector('.btn-navbar');
         const body = document.querySelector('html');
@@ -177,6 +191,7 @@ const Layout = () => {
                 </div>
                 <div className="header-util-log">
                     <button type="button" className="bgSoundBtn"><i>SOUND ON</i></button>
+                    {/* [Code Review] BGM 재생/일시정지 제어는 bgSoundBtn의 onClick 이벤트와 useRef(또는 상태)를 연결하여 React 방식으로 제어하도록 수정하는 것이 유지보수에 좋습니다. */}
                     <audio id="bgm" muted loop>
                         <source src="/resource/images/video/jonasblakewood-corporate-background-524146.mp3" type="audio/mp3" />
                     </audio>

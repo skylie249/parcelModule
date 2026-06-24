@@ -1,10 +1,19 @@
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
+/**
+ * [Code Review]
+ * 인트로 페이지 컴포넌트입니다.
+ * 개선 권장 사항:
+ * 1. atob() 대신 더 안정적인 JWT 디코딩 라이브러리(예: jwt-decode) 사용 권장
+ * 2. 쿠키 파싱 로직을 유틸리티 함수로 분리
+ * 3. 외부 스크립트(window.initIntro) 의존성 제거
+ */
 const Intro = () => {
   const navigate = useNavigate();
 
-  // JWT 페이로드 디코딩 함수 (프론트엔드에서는 시크릿 키 서명 검증 대신 구조와 만료시간만 확인합니다)
+  // [Code Review] atob()는 유니코드 문자 처리에 취약할 수 있습니다. 
+  // 실제 프로덕션에서는 jwt-decode 같은 검증된 라이브러리를 사용하는 것이 안전합니다.
   const parseJwt = (token) => {
     try {
       const base64Url = token.split('.')[1];
@@ -19,7 +28,8 @@ const Intro = () => {
   };
 
   useEffect(() => {
-    // JWT_TOKEN 쿠키에서 토큰 추출
+    // [Code Review] 쿠키를 파싱하는 로직은 다른 컴포넌트에서도 재사용될 가능성이 높으므로,
+    // utils 폴더 등 별도의 파일로 분리하여 import 해서 사용하는 것을 권장합니다.
     const getCookie = (name) => {
       const value = `; ${document.cookie}`;
       const parts = value.split(`; ${name}=`);
@@ -84,6 +94,8 @@ const Intro = () => {
       }
     }
 
+    // [Code Review] Layout.jsx와 마찬가지로 setTimeout을 이용한 외부 스크립트 실행은 
+    // 리액트의 렌더링 사이클과 충돌할 수 있습니다.
     if (window.initIntro) setTimeout(() => window.initIntro(), 50);
   }, [navigate]);
 
