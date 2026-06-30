@@ -1,24 +1,42 @@
 import React, { useEffect } from 'react';
 
-/**
- * [Code Review]
- * 메인 페이지 컴포넌트입니다.
- * 개선 권장 사항:
- * 1. 전역 ScrollTrigger 객체 관리 방식 개선 (GSAP 사용 시 React의 useLayoutEffect와 gsap.context 활용 권장)
- * 2. 반복되는 슬라이드, VR 버튼 요소를 배열 매핑으로 리팩토링
- */
+const vrList = [
+  { id: 1, url: '2aec6539d5c14a929dd7973fd733da7b/4', title: 'SK VIEW 보행자 출입구 VR', name: '보행자 출입구', nameHtml: <>보행자<br />출입구</>, ico: 'ico1' },
+  { id: 2, url: '2aec6539d5c14a929dd7973fd733da7b/1', title: 'SK VIEW 중앙광장 VR', name: '중앙광장', nameHtml: '중앙광장', ico: 'ico2' },
+  { id: 3, url: '2aec6539d5c14a929dd7973fd733da7b/3', title: 'SK VIEW 어린이 놀이터 VR', name: '어린이 놀이터', nameHtml: <>어린이<br />놀이터</>, ico: 'ico3' },
+  { id: 4, url: '2aec6539d5c14a929dd7973fd733da7b/2', title: 'SK VIEW 단지정문 VR', name: '정문', nameHtml: '정문', ico: 'ico5' },
+  { id: 5, url: 'eb0d93bf7a9a4452ad0b95319deeda10/3', title: 'SK VIEW 커뮤니티 VR', name: '커뮤니티', nameHtml: '커뮤니티', ico: 'ico6' },
+  { id: 6, url: 'eb0d93bf7a9a4452ad0b95319deeda10/5', title: 'SK VIEW 스카이 라운지 VR', name: '스카이라운지', nameHtml: <>스카이<br />라운지</>, ico: 'ico4' }
+];
+
+const vrNavOrder = [1, 2, 3, 6, 4, 5];
+
 const Index = () => {
   useEffect(() => {
-    if (window.initMain) setTimeout(() => window.initMain(), 50);
-    if (window.initVr) setTimeout(() => window.initVr(), 50);
+    let ctx;
+    let timer;
+
+    timer = setTimeout(() => {
+      if (window.gsap) {
+        ctx = window.gsap.context(() => {
+          if (window.initMain) window.initMain();
+          if (window.initVr) window.initVr();
+        });
+      } else {
+        if (window.initMain) window.initMain();
+        if (window.initVr) window.initVr();
+      }
+    }, 50);
+
     return () => {
-      // [Code Review] ScrollTrigger 등 전역 플러그인을 정리할 때는, 
-      // React 18의 StrictMode에서 두 번 호출되는 문제를 방지하기 위해 
-      // gsap.context()를 사용하는 최신 GSAP-React 패턴 적용을 권장합니다.
-      if (window.ScrollTrigger) {
+      clearTimeout(timer);
+      if (ctx) {
+        ctx.revert();
+      } else if (window.ScrollTrigger) {
         window.ScrollTrigger.getAll().forEach(t => t.kill());
         window.ScrollTrigger.clearScrollMemory?.();
       }
+      if (window.destroyMain) window.destroyMain();
     };
   }, []);
 
@@ -131,13 +149,12 @@ const Index = () => {
                     </picture>
                   </div>
                   <h3>VR 단지 투어</h3>
-                  {/* [Code Review] 아래 VR 버튼들은 구조가 동일하므로, 데이터 배열(예: vrList)을 선언한 뒤 map() 함수로 렌더링하면 코드가 훨씬 깔끔해집니다. */}
-                  <button type="button" className="vr-btn vr-btn1" data-url="2aec6539d5c14a929dd7973fd733da7b/4" data-title="SK VIEW 보행자 출입구 VR"><span className="vr-pin"><span className="txt">보행자<br />출입구</span></span><span className="shadow"></span></button>
-                  <button type="button" className="vr-btn vr-btn2" data-url="2aec6539d5c14a929dd7973fd733da7b/1" data-title="SK VIEW 중앙광장 VR"><span className="vr-pin"><span className="txt">중앙광장</span></span><span className="shadow"></span></button>
-                  <button type="button" className="vr-btn vr-btn3" data-url="2aec6539d5c14a929dd7973fd733da7b/3" data-title="SK VIEW 어린이 놀이터 VR"><span className="vr-pin"><span className="txt">어린이<br />놀이터</span></span><span className="shadow"></span></button>
-                  <button type="button" className="vr-btn vr-btn4" data-url="2aec6539d5c14a929dd7973fd733da7b/2" data-title="SK VIEW 단지정문 VR"><span className="vr-pin"><span className="txt">정문</span></span><span className="shadow"></span></button>
-                  <button type="button" className="vr-btn vr-btn5" data-url="eb0d93bf7a9a4452ad0b95319deeda10/3" data-title="SK VIEW 커뮤니티 VR"><span className="vr-pin"><span className="txt">커뮤니티</span></span><span className="shadow"></span></button>
-                  <button type="button" className="vr-btn vr-btn6" data-url="eb0d93bf7a9a4452ad0b95319deeda10/5" data-title="SK VIEW 스카이 라운지 VR"><span className="vr-pin"><span className="txt">스카이<br />라운지</span></span><span className="shadow"></span></button>
+                  {vrList.map((vr) => (
+                    <button key={vr.id} type="button" className={`vr-btn vr-btn${vr.id}`} data-url={vr.url} data-title={vr.title}>
+                      <span className="vr-pin"><span className="txt">{vr.nameHtml}</span></span>
+                      <span className="shadow"></span>
+                    </button>
+                  ))}
                 </div>
               </div>
             </div>
@@ -158,12 +175,14 @@ const Index = () => {
               </div>
             </div>
             <div className="vr-content-nav">
-              <button type="button" className="vr-nav-btn" data-url="2aec6539d5c14a929dd7973fd733da7b/4" data-title="SK VIEW 보행자 출입구 VR"><span>보행자 출입구</span><i className="ico1"></i></button>
-              <button type="button" className="vr-nav-btn" data-url="2aec6539d5c14a929dd7973fd733da7b/1" data-title="SK VIEW 중앙광장 VR"><span>중앙광장</span><i className="ico2"></i></button>
-              <button type="button" className="vr-nav-btn" data-url="2aec6539d5c14a929dd7973fd733da7b/3" data-title="SK VIEW 어린이 놀이터 VR"><span>어린이 놀이터</span><i className="ico3"></i></button>
-              <button type="button" className="vr-nav-btn" data-url="eb0d93bf7a9a4452ad0b95319deeda10/5" data-title="SK VIEW 스카이 라운지 VR"><span>스카이라운지</span><i className="ico4"></i></button>
-              <button type="button" className="vr-nav-btn" data-url="2aec6539d5c14a929dd7973fd733da7b/2" data-title="SK VIEW 단지정문 VR"><span>정문</span><i className="ico5"></i></button>
-              <button type="button" className="vr-nav-btn" data-url="eb0d93bf7a9a4452ad0b95319deeda10/3" data-title="SK VIEW 커뮤니티 VR"><span>커뮤니티</span><i className="ico6"></i></button>
+              {vrNavOrder.map((id) => {
+                const vr = vrList.find(v => v.id === id);
+                return (
+                  <button key={vr.id} type="button" className="vr-nav-btn" data-url={vr.url} data-title={vr.title}>
+                    <span>{vr.name}</span><i className={vr.ico}></i>
+                  </button>
+                );
+              })}
             </div>
             <p className="popup-vr-ment">※ 해당 이미지는 조합원님의 이해를 돕기위한 것으로 실제 인허가 등 사업추진 과정에 따라 다소 차이가 발생할 수 있습니다</p>
             <button type="button" className="vr-mo-toggle"><i className="ico">오픈</i></button>

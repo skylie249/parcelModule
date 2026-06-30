@@ -1,42 +1,12 @@
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
+import { getCookie } from '../../utils/cookie';
 
-/**
- * [Code Review]
- * 인트로 페이지 컴포넌트입니다.
- * 개선 권장 사항:
- * 1. atob() 대신 더 안정적인 JWT 디코딩 라이브러리(예: jwt-decode) 사용 권장
- * 2. 쿠키 파싱 로직을 유틸리티 함수로 분리
- * 3. 외부 스크립트(window.initIntro) 의존성 제거
- */
 const Intro = () => {
   const navigate = useNavigate();
 
-  // [Code Review] atob()는 유니코드 문자 처리에 취약할 수 있습니다. 
-  // 실제 프로덕션에서는 jwt-decode 같은 검증된 라이브러리를 사용하는 것이 안전합니다.
-  const parseJwt = (token) => {
-    try {
-      const base64Url = token.split('.')[1];
-      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-      const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-      }).join(''));
-      return JSON.parse(jsonPayload);
-    } catch (e) {
-      return null;
-    }
-  };
-
   useEffect(() => {
-    // [Code Review] 쿠키를 파싱하는 로직은 다른 컴포넌트에서도 재사용될 가능성이 높으므로,
-    // utils 폴더 등 별도의 파일로 분리하여 import 해서 사용하는 것을 권장합니다.
-    const getCookie = (name) => {
-      const value = `; ${document.cookie}`;
-      const parts = value.split(`; ${name}=`);
-      if (parts.length === 2) return parts.pop().split(';').shift();
-      return null;
-    };
-
     const token = getCookie('JWT_TOKEN');
     const verifyUrl = import.meta.env.VITE_JWT_VERIFY_URL; // JWT 검증 URL
 
@@ -76,8 +46,9 @@ const Intro = () => {
     } else {
       // 2) JWT 검증 URL이 없는 경우 (로컬 프론트엔드 검증)
       if (token) {
-        const decodedPayload = parseJwt(token);
-        if (decodedPayload) {
+        try {
+          const decodedPayload = jwtDecode(token);
+          if (decodedPayload) {
           const currentTime = Date.now() / 1000;
           if (decodedPayload.exp && decodedPayload.exp < currentTime) {
             console.error("JWT 검증 실패: 토큰이 만료되었습니다.");
@@ -85,7 +56,8 @@ const Intro = () => {
           } else {
             navigate('/main', { replace: true }); // 정상 토큰
           }
-        } else {
+          }
+        } catch (e) {
           console.error("JWT 검증 실패: 잘못된 토큰 형식입니다.");
           createSessionAndNavigate();
         }
@@ -94,9 +66,7 @@ const Intro = () => {
       }
     }
 
-    // [Code Review] Layout.jsx와 마찬가지로 setTimeout을 이용한 외부 스크립트 실행은 
-    // 리액트의 렌더링 사이클과 충돌할 수 있습니다.
-    if (window.initIntro) setTimeout(() => window.initIntro(), 50);
+    if (window.initIntro) window.initIntro();
   }, [navigate]);
 
   const handleExternalAuth = (e) => {

@@ -1,13 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-/**
- * [Code Review]
- * 이 컴포넌트는 주로 정적 UI를 렌더링하는 페이지입니다.
- * 개선 권장 사항:
- * - 텍스트 및 이미지 경로 등 하드코딩된 데이터를 상수나 JSON으로 분리하면 유지보수가 더 쉽습니다.
- * - 마크업이 반복되는 구간은 하위 컴포넌트로 분리해 보세요.
- */
+const concept1Data = [
+  { id: 1, img: 'concept-p1.jpg', alt: '세종대로의 끝, 광화문', title: '세종대로의 끝, 광화문', desc: '대한민국을 관통하는 중심의 축이자 역사의 상징' },
+  { id: 2, img: 'concept-p2.jpg', alt: '문정로의 끝, 수지삼성2차', title: '문정로의 끝, 수지삼성2차', desc: '수지의 중심 축에서 완성되는 새로운 랜드마크' }
+];
+
+const concept2Data = [
+  { id: 1, bgClass: 'concept-bg1', txClass: 'concept-tx1', text1: '역사가 증명한 위대한 길,', text2: '그리고 위대한 걸작' },
+  { id: 2, bgClass: 'concept-bg2', txClass: 'concept-tx2', text1: '자부심으로 완성되는', text2: '위대한 주거 명작' },
+  { id: 3, bgClass: 'concept-bg3', txClass: 'concept-tx3', text1: '도시의 속도를 지나', text2: '자연의 깊은 곳으로 들어서다' },
+  { id: 4, bgClass: 'concept-bg4', txClass: 'concept-tx4', text1: '자연과 하나되는', text2: '그린 라이프의 주인공이 되다' }
+];
+
 const Concept = () => {
   return (
     <div id="container">
@@ -34,61 +39,32 @@ const Concept = () => {
                     <p className="tx-lg n-motion n-bottom">위대한 도시에는 그 이름을 증명하는 위대한 길이 있습니다</p>
                   </div>
                   <div className="concept-con">
-                    <div className="conbx">
-                        <div className="photo n-motion n-bottom">
-                          <img src="/resource/images/theme/concept-p1.jpg" alt="세종대로의 끝, 광화문" />
-                        </div>
-                        <div className="desc">
-                          <h4 className="tx-tit2 n-motion n-bottom">세종대로의 끝, 광화문</h4>
-                          <p className="tx-lg n-motion n-bottom">대한민국을 관통하는 중심의 축이자 역사의 상징</p>
-                        </div>
-                    </div>
-                    <div className="conbx">
-                        <div className="photo n-motion n-bottom">
-                          <img src="/resource/images/theme/concept-p2.jpg" alt="문정로의 끝, 수지삼성2차" />
-                        </div>
-                        <div className="desc">
-                          <h4 className="tx-tit2 n-motion n-bottom">문정로의 끝, 수지삼성2차</h4>
-                          <p className="tx-lg n-motion n-bottom">수지의 중심 축에서 완성되는 새로운 랜드마크</p>
-                        </div>
-                    </div>
+                    {concept1Data.map(item => (
+                      <div className="conbx" key={item.id}>
+                          <div className="photo n-motion n-bottom">
+                            <img src={`/resource/images/theme/${item.img}`} alt={item.alt} />
+                          </div>
+                          <div className="desc">
+                            <h4 className="tx-tit2 n-motion n-bottom">{item.title}</h4>
+                            <p className="tx-lg n-motion n-bottom">{item.desc}</p>
+                          </div>
+                      </div>
+                    ))}
                   </div>
               </div>                
               <div className="concept-section2">
                 <div className="full-blocks-pin">
                   <div className="full-blocks">
-                    <div className="full-block">
-                      <div className="bg concept-bg1"></div>
-                      <div className="desc">
-                        <div className="desc-item concept-tx1">
-                          <span>역사가 증명한 위대한 길,</span><span>그리고 위대한 걸작</span>
-                        </div>
-                      </div>  
-                    </div>
-                    <div className="full-block">
-                      <div className="bg concept-bg2"></div>
-                      <div className="desc">
-                        <div className="desc-item concept-tx2">
-                          <span>자부심으로 완성되는</span><span>위대한 주거 명작</span>  
-                        </div>
-                      </div>  
-                    </div>
-                    <div className="full-block">
-                      <div className="bg concept-bg3"></div>
-                      <div className="desc">
-                        <div className="desc-item concept-tx3">
-                          <span>도시의 속도를 지나</span><span>자연의 깊은 곳으로 들어서다</span>  
-                        </div>
-                      </div>  
-                    </div>
-                    <div className="full-block">
-                      <div className="bg concept-bg4"></div>
-                      <div className="desc">
-                        <div className="desc-item concept-tx4">
-                          <span>자연과 하나되는</span><span>그린 라이프의 주인공이 되다</span>  
-                        </div>
-                      </div>  
-                    </div>
+                    {concept2Data.map(item => (
+                      <div className="full-block" key={item.id}>
+                        <div className={`bg ${item.bgClass}`}></div>
+                        <div className="desc">
+                          <div className={`desc-item ${item.txClass}`}>
+                            <span>{item.text1}</span><span>{item.text2}</span>
+                          </div>
+                        </div>  
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>

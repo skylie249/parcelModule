@@ -1,13 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-/**
- * [Code Review]
- * 이 컴포넌트는 주로 정적 UI를 렌더링하는 페이지입니다.
- * 개선 권장 사항:
- * - 텍스트 및 이미지 경로 등 하드코딩된 데이터를 상수나 JSON으로 분리하면 유지보수가 더 쉽습니다.
- * - 마크업이 반복되는 구간은 하위 컴포넌트로 분리해 보세요.
- */
+const archData1 = [
+  {
+    id: 1,
+    img1: 'arch-c1-1.jpg',
+    img2: 'arch-c1-2.jpg',
+    sub: '최고의 교통',
+    title: '신분당선 수지구청역 도보권',
+    list: ['신분당선 판교·정자·강남 업무권 연결', '경부고속도로, 용인서울고속도로, 간선도로 등 입체 교통망']
+  },
+  {
+    id: 2,
+    img1: 'arch-c2-1.jpg',
+    img2: 'arch-c2-2.jpg',
+    sub: '최대의 자연',
+    title: '광교산 숨결을 누리는 입지',
+    list: ['수지생태공원, 도장골어린이공원 등 다수의 공원 확보', '성복천 수변 라이프 가능']
+  },
+  {
+    id: 3,
+    img1: 'arch-c3-1.jpg',
+    img2: 'arch-c3-2.jpg',
+    sub: '최상의 인프라',
+    title: '수지구 핵심 주거 중심지',
+    list: ['수지구청, 로데오거리 상권, 편의시설 밀집, 분당 생활권 공유', '안정적인 초·중·고 학군 및 수지구청역 주변 대규모 학원가']
+  }
+];
+
 const ArchitectureDesign = () => {
   return (
     <div id="container">
@@ -34,7 +54,6 @@ const ArchitectureDesign = () => {
                   </div>   
                   <button type="button" className="tgSound"><span className="blind">사운드켜기</span></button>               
                 </div>
-                
               </div>
 
               <div className="architecture-sect1">
@@ -50,72 +69,31 @@ const ArchitectureDesign = () => {
                     </p>
                   </div>
                   <div className="sect1">
-                    <div className="block">
-                      <div className="photo">
-                        <img
-                          src="/resource/images/complex/arch-c1-1.jpg"
-                          alt=""
-                          className="n-motion n-bottom"
-                        />
-                        <img
-                          src="/resource/images/complex/arch-c1-2.jpg"
-                          alt=""
-                          className="n-motion n-bottom"
-                        />
+                    {archData1.map(item => (
+                      <div className="block" key={item.id}>
+                        <div className="photo">
+                          <img
+                            src={`/resource/images/complex/${item.img1}`}
+                            alt=""
+                            className="n-motion n-bottom"
+                          />
+                          <img
+                            src={`/resource/images/complex/${item.img2}`}
+                            alt=""
+                            className="n-motion n-bottom"
+                          />
+                        </div>
+                        <div className="desc">
+                          <p className="n-motion n-bottom">{item.sub}</p>
+                          <h4 className="n-motion n-bottom">{item.title}</h4>
+                          <ul className="n-motion n-bottom">
+                            {item.list.map((li, index) => (
+                              <li key={index}>{li}</li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
-                      <div className="desc">
-                        <p className="n-motion n-bottom">최고의 교통</p>
-                        <h4 className="n-motion n-bottom">신분당선 수지구청역 도보권</h4>
-                        <ul className="n-motion n-bottom">
-                          <li>신분당선 판교·정자·강남 업무권 연결</li>
-                          <li>경부고속도로, 용인서울고속도로, 간선도로 등 입체 교통망</li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div className="block">
-                      <div className="photo">
-                        <img
-                          src="/resource/images/complex/arch-c2-1.jpg"
-                          alt=""
-                          className="n-motion n-bottom"
-                        />
-                        <img
-                          src="/resource/images/complex/arch-c2-2.jpg"
-                          alt=""
-                          className="n-motion n-bottom"
-                        />
-                      </div>
-                      <div className="desc">
-                        <p className="n-motion n-bottom">최대의 자연</p>
-                        <h4 className="n-motion n-bottom">광교산 숨결을 누리는 입지</h4>
-                        <ul className="n-motion n-bottom">
-                          <li>수지생태공원, 도장골어린이공원 등 다수의 공원 확보</li>
-                          <li>성복천 수변 라이프 가능</li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div className="block">
-                      <div className="photo">
-                        <img
-                          src="/resource/images/complex/arch-c3-1.jpg"
-                          alt=""
-                          className="n-motion n-bottom"
-                        />
-                        <img
-                          src="/resource/images/complex/arch-c3-2.jpg"
-                          alt=""
-                          className="n-motion n-bottom"
-                        />
-                      </div>
-                      <div className="desc">
-                        <p className="n-motion n-bottom">최상의 인프라</p>
-                        <h4 className="n-motion n-bottom">수지구 핵심 주거 중심지</h4>
-                        <ul className="n-motion n-bottom">
-                          <li>수지구청, 로데오거리 상권, 편의시설 밀집, 분당 생활권 공유</li>
-                          <li>안정적인 초·중·고 학군 및 수지구청역 주변 대규모 학원가</li>
-                        </ul>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                   <div className="sect2 n-motion n-bottom">
                     <img src="/resource/images/complex/arch-map.jpg" alt="" />
@@ -144,26 +122,14 @@ const ArchitectureDesign = () => {
                         />
                       </div>
                       <div className="mo-only">
-                        <img
-                          src="/resource/images/complex/a_1 1.png"
-                          alt=""
-                          className="n-motion n-bottom"
-                        />
-                        <img
-                          src="/resource/images/complex/a_2 1.png"
-                          alt=""
-                          className="n-motion n-bottom"
-                        />
-                        <img
-                          src="/resource/images/complex/a_3 1.png"
-                          alt=""
-                          className="n-motion n-bottom"
-                        />
-                        <img
-                          src="/resource/images/complex/a_4 1.png"
-                          alt=""
-                          className="n-motion n-bottom"
-                        />
+                        {[1, 2, 3, 4].map(num => (
+                          <img
+                            key={num}
+                            src={`/resource/images/complex/a_${num} 1.png`}
+                            alt=""
+                            className="n-motion n-bottom"
+                          />
+                        ))}
                       </div>
                     </div>
                   </div>

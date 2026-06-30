@@ -1,8 +1,19 @@
 
 gsap.registerPlugin(ScrollTrigger);  
 let lenis;
+let lenisRafId;
+window.destroyMain = () => {
+  if (lenisRafId) cancelAnimationFrame(lenisRafId);
+  if (lenis) {
+    lenis.destroy();
+    lenis = null;
+  }
+};
+
 function initLenis() {
   // 1. Lenis 초기화
+  if (lenisRafId) cancelAnimationFrame(lenisRafId);
+  if (lenis) lenis.destroy();
   lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -12,9 +23,9 @@ function initLenis() {
   function raf(time) {
     lenis.raf(time);
     ScrollTrigger.update();
-    requestAnimationFrame(raf);
+    lenisRafId = requestAnimationFrame(raf);
   }
-  requestAnimationFrame(raf);
+  lenisRafId = requestAnimationFrame(raf);
   //ScrollTrigger에 Lenis의 scroll 값을 전달
   ScrollTrigger.scrollerProxy(document.html, {
     scrollTop(value) {

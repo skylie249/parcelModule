@@ -1,30 +1,29 @@
+import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/Layout';
 
-// Pages
-import Index from './pages/main/Index';
-import Intro from './pages/main/Intro';
-import Story from './pages/theme/Story';
-import Concept from './pages/theme/Concept';
-import MasterPlan from './pages/theme/MasterPlan';
-import Highlight from './pages/complex/Highlight';
-import ArchitectureDesign from './pages/complex/ArchitectureDesign';
-import ExteriorDesign from './pages/complex/ExteriorDesign';
-import LandscapeDesign from './pages/complex/LandscapeDesign';
-import CommunityDesign from './pages/complex/CommunityDesign';
-import UnitDesign from './pages/unit/UnitDesign';
-import UnitCreate from './pages/unit/UnitCreate';
-import Items from './pages/unit/Items';
-import VrTour from './pages/vr/VrTour';
-import ErrorPage from './pages/ErrorPage';
+// Pages (Lazy loaded for Code Splitting)
+const Index = lazy(() => import('./pages/main/Index'));
+const Intro = lazy(() => import('./pages/main/Intro'));
+const Story = lazy(() => import('./pages/theme/Story'));
+const Concept = lazy(() => import('./pages/theme/Concept'));
+const MasterPlan = lazy(() => import('./pages/theme/MasterPlan'));
+const Highlight = lazy(() => import('./pages/complex/Highlight'));
+const ArchitectureDesign = lazy(() => import('./pages/complex/ArchitectureDesign'));
+const ExteriorDesign = lazy(() => import('./pages/complex/ExteriorDesign'));
+const LandscapeDesign = lazy(() => import('./pages/complex/LandscapeDesign'));
+const CommunityDesign = lazy(() => import('./pages/complex/CommunityDesign'));
+const UnitDesign = lazy(() => import('./pages/unit/UnitDesign'));
+const UnitCreate = lazy(() => import('./pages/unit/UnitCreate'));
+const Items = lazy(() => import('./pages/unit/Items'));
+const VrTour = lazy(() => import('./pages/vr/VrTour'));
+const ErrorPage = lazy(() => import('./pages/ErrorPage'));
 
-// [Code Review] 현재 모든 페이지 컴포넌트를 한 번에 import 하고 있습니다.
-// 애플리케이션 규모가 커질 경우 초기 로딩 속도 지연을 방지하기 위해 React.lazy()를 활용한 Code Splitting 도입을 강력히 권장합니다.
-// 예: const Intro = lazy(() => import('./pages/main/Intro'));
 function App() {
   return (
     <Router>
-      <Routes>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
         <Route path="/" element={<Navigate to="/intro" replace />} />
         <Route path="/intro" element={<Intro />} />
         
@@ -57,7 +56,8 @@ function App() {
 
           <Route path="*" element={<ErrorPage />} />
         </Route>
-      </Routes>
+        </Routes>
+      </Suspense>
     </Router>
   );
 }
