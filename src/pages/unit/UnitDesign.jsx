@@ -1,5 +1,16 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { unitDesignTypes } from './constants';
+
+const DesignTypeNav = () => (
+  <ul>
+    {unitDesignTypes.map((type, index) => (
+      <li key={index} className={index === 0 ? 'active' : ''}>
+        <button type="button" data-type={type}>{type}</button>
+      </li>
+    ))}
+  </ul>
+);
 
 /**
  * [Code Review]
@@ -69,177 +80,19 @@ const UnitDesign = () => {
                   {/*  pc  */}
                   <div className="floor-plan pc-only n-motion n-bottom">
                     <div className="floor-plan-nav">
-                      <ul>
-                        <li className="active"><button type="button" data-type="84A">84A</button></li>
-                        <li><button type="button" data-type="84B">84B</button></li>
-                        <li><button type="button" data-type="74A">74A</button></li>
-                        <li><button type="button" data-type="74B">74B</button></li>
-                        <li><button type="button" data-type="59A">59A</button></li>
-                        <li><button type="button" data-type="59B">59B</button></li>
-                      </ul>
+                      <DesignTypeNav />
                     </div>
                     {/*  floor-plan-content는 unit.js에서 unit_mock.json을 불러와 동적 렌더링  */}
                     <div className="floor-plan-contents">
-                      {/*  <div className="floor-plan-content">                                
-                                <div className="floor-plan-content-nav">
-                                  <h4>84A</h4>
-                                  <ul>
-                                    <li className="active"><button type="button" data-option="0" className="active"><span className="label">Interior</span></button></li>
-                                    <li><button type="button" data-option="1"><span className="label">기본형</span></button></li>
-                                    <li><button type="button" data-option="2"><span className="label">다이닝 키친</span></button></li>
-                                    <li><button type="button" data-option="3"><span className="label">디럭스 키친</span></button></li>
-                                    <li><button type="button" data-option="4"><span className="label">스마트 유틸리티</span></button></li>
-                                    <li><button type="button" data-option="5"><span className="label">드레스룸 특화</span></button></li>
-                                    <li><button type="button" data-option="6"><span className="label">플러스 스토리지</span></button></li>
-                                  </ul>
-                                </div>
-                                <div className="floor-plan-content-body" style={{ display: 'none' }}>
-                                    <div className="photo">
-                                      <img src="/resource/images/design/interior-84A.jpg" alt="84A" />
-                                    </div>
-                                    <div className="desc">
-                                        <div className="interior">
-                                          <h5 className="tit">SENSIBLE BALANCE</h5>
-                                          <p className="t1">센서블 밸런스</p>
-                                          <p className="t2">“절제된 구성 속에서 드러나는 고요한 품격”<br  />
-                                            자연의 질감을 담아낸 마감과 재료의 균형, 그 본질에서 완성되는 깊이 있는 우아함</p> 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="floor-plan-content-body" style={{ display: 'none' }}>
-                                    <div className="photo">
-                                      <img src="/resource/images/design/84A-f1.png" alt="84A" />
-                                    </div>
-                                    <div className="desc">
-                                        <div className="basic">
-                                          <h5 className="tit">기본형</h5>
-                                          <ul className="dot-lists">
-                                            <li>레저 라이프를 위한 현관창고, 복도 팬트리</li>
-                                            <li>소비자의 니즈에 맞춰 변모하는 가변형 침실</li>
-                                            <li>가족 소통의 중심이 되는 대면형 주방</li>
-                                            <li>편리함을 강조한 동선 최적화 다용도실</li>
-                                            <li>프라이빗한 생활을 완성하는 마스터 알파존</li>
-                                          </ul>                                          
-                                        </div> 
-                                    </div>
-                                </div>
-                                <div className="floor-plan-content-body">
-                                    <div className="photo">
-                                      <img src="/resource/images/design/84A-f2.png" alt="84A" />
-                                    </div>
-                                    <div className="desc">
-                                        <div className="basic">
-                                          <h5 className="tit">다이닝 키친</h5>
-                                          <p className="t1">주방+팬트리 특화+다용도실 특화</p>
-                                          <ul className="dot-lists">
-                                            <li>독립형 아일랜드와 와이드 주방</li>
-                                          </ul>                                          
-                                        </div> 
-                                    </div>
-                                </div>
-                              </div>  */}
                     </div>
                   </div>
 
                   {/*  mo  */}
                   <div className="floor-plan-mo mo-only">
                     <div className="floor-plan-mo-nav n-motion n-bottom">
-                      <ul>
-                        <li className="active"><button type="button" data-type="84A">84A</button></li>
-                        <li><button type="button" data-type="84B">84B</button></li>
-                        <li><button type="button" data-type="74A">74A</button></li>
-                        <li><button type="button" data-type="74B">74B</button></li>
-                        <li><button type="button" data-type="59A">59A</button></li>
-                        <li><button type="button" data-type="59B">59B</button></li>
-                      </ul>
+                      <DesignTypeNav />
                     </div>
                     <div className="floor-plan-mo-contents n-motion n-bottom">
-                      {/*  <div className="floor-plan-mo-content">
-                                <div className="top">
-                                  <h4>84A</h4>                                    
-                                  <div className="nav">
-                                      <button type="button" data-option="0"><span className="label">Interior</span></button>
-                                      <button type="button" data-option="1"><span className="label">기본형</span></button>
-                                  </div>
-                                </div>                                  
-                                <div className="photo">
-                                  <img src="/resource/images/design/interior-84A-mo.png" alt="84A" />
-                                </div>
-                                <div className="nav">
-                                  <button type="button" data-option="2"><span className="label">다이닝 키친</span></button>
-                                  <button type="button" data-option="3"><span className="label">디럭스 키친</span></button>
-                                  <button type="button" data-option="4"><span className="label">스마트 유틸리티</span></button>
-                                  <button type="button" data-option="5"><span className="label">드레스룸 특화</span></button>
-                                  <button type="button" data-option="6"><span className="label">플러스 스토리지</span></button>
-                                </div>
-                                <div className="desc">
-                                    <div className="interior">
-                                      <h5 className="tit">SENSIBLE BALANCE</h5>
-                                      <p className="t1">센서블 밸런스</p>
-                                      <p className="t2">“절제된 구성 속에서 드러나는 고요한 품격”<br  />
-                                        자연의 질감을 담아낸 마감과 재료의 균형, 그 본질에서 완성되는 깊이 있는 우아함</p> 
-                                    </div>
-                                </div>
-                              </div>
-                              <div className="floor-plan-mo-content">
-                                <div className="top">
-                                  <h4>84A</h4>                                    
-                                  <div className="nav">
-                                      <button type="button" data-option="0"><span className="label">Interior</span></button>
-                                      <button type="button" data-option="1"><span className="label">기본형</span></button>
-                                  </div>
-                                </div>                                  
-                                <div className="photo">
-                                  <img src="/resource/images/design/84A-f1-mo.png" alt="84A" />
-                                </div>
-                                <div className="nav">
-                                  <button type="button" data-option="2"><span className="label">다이닝 키친</span></button>
-                                  <button type="button" data-option="3"><span className="label">디럭스 키친</span></button>
-                                  <button type="button" data-option="4"><span className="label">스마트 유틸리티</span></button>
-                                  <button type="button" data-option="5"><span className="label">드레스룸 특화</span></button>
-                                  <button type="button" data-option="6"><span className="label">플러스 스토리지</span></button>
-                                </div>
-                                <div className="desc">
-                                    <div className="desc">
-                                      <h5 className="tit">기본형</h5>
-                                      <ul className="dot-lists">
-                                        <li>레저 라이프를 위한 현관창고, 복도 팬트리</li>
-                                        <li>가족 소통의 중심이 되는 대면형 주방</li>
-                                        <li>프라이빗한 생활을 완성하는 마스터 알파존</li>
-                                        <li>소비자의 니즈에 맞춰 변모하는 가변형 침실</li>
-                                        <li>편리함을 강조한 동선 최적화 다용도실</li> </li>
-                                      </ul>
-                                    </div>
-                                </div>
-                              </div>
-                              <div className="floor-plan-mo-content">
-                                <div className="top">
-                                  <h4>84A</h4>                                    
-                                  <div className="nav">
-                                      <button type="button" data-option="0"><span className="label">Interior</span></button>
-                                      <button type="button" data-option="1"><span className="label">기본형</span></button>
-                                  </div>
-                                </div>                                  
-                                <div className="photo">
-                                  <img src="/resource/images/design/84A-f2-mo.png" alt="84A" />
-                                </div>
-                                <div className="nav">
-                                  <button type="button" data-option="2"><span className="label">다이닝 키친</span></button>
-                                  <button type="button" data-option="3"><span className="label">디럭스 키친</span></button>
-                                  <button type="button" data-option="4"><span className="label">스마트 유틸리티</span></button>
-                                  <button type="button" data-option="5"><span className="label">드레스룸 특화</span></button>
-                                  <button type="button" data-option="6"><span className="label">플러스 스토리지</span></button>
-                                </div>
-                                <div className="desc">
-                                    <div className="desc">
-                                      <h5 className="tit">다이닝 키친</h5>
-                                      <p className="t1">주방+팬트리 특화+다용도실 특화</p>
-                                      <ul className="dot-lists">
-                                        <li>독립형 아일랜드와 와이드 주방</li> 
-                                      </ul>
-                                    </div>
-                                </div>
-                              </div>  */}
                     </div>
                   </div>
                 </div>

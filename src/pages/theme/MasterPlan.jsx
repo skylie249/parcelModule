@@ -39,24 +39,24 @@ const MasterPlan = () => {
                 <img src="/resource/images/theme/masterplan-p1.jpg" alt="" />
               </div>
               <table className="infos n-motion n-bottom">
-                  <colgroup>
-                    <col style={{width: '28%'}} />
-                    <col style={{width: 'auto'}} />
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th>구분</th>
-                      <th>내용</th>
+                <colgroup>
+                  <col style={{ width: '28%' }} />
+                  <col style={{ width: 'auto' }} />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>구분</th>
+                    <th>내용</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {masterPlanData.map((item, index) => (
+                    <tr key={index}>
+                      <th>{item.label}</th>
+                      <td>{item.value}</td>
                     </tr>
-                  </thead>
-                  <tbody>
-                    {masterPlanData.map((item, index) => (
-                      <tr key={index}>
-                        <th>{item.label}</th>
-                        <td>{item.value}</td>
-                      </tr>
-                    ))}
-                  </tbody>
+                  ))}
+                </tbody>
               </table>
             </div>
           </div>
